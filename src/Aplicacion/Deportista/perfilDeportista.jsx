@@ -21,7 +21,7 @@ export default function PerfilDeportista() {
     const obtenerPerfil = async () => {
       try {
         const response = await axios.get(
-          `https://backend-5gwv.onrender.com/api/perfil_deportista/${deportista.perfil_Deportista.ID_Perfil_Deportista}`
+          `http://localhost:3000/api/perfil_deportista/${deportista.perfil_Deportista.ID_Perfil_Deportista}`
         );
         setDatosDeportista(deportista);
         setDatosTemporales(deportista);
@@ -44,7 +44,7 @@ export default function PerfilDeportista() {
   const guardarCambios = async () => {
     try {
       await axios.put(
-        `https://backend-5gwv.onrender.com/api/deportista/${deportista.ID_Deportista}`,
+        `http://localhost:3000/api/deportista/${deportista.ID_Deportista}`,
         {
           ...deportista,
           direccion: datosTemporales.direccion,
@@ -99,7 +99,7 @@ export default function PerfilDeportista() {
       const perfilId = deportista.perfil_Deportista.ID_Perfil_Deportista;
 
       const response = await axios.put(
-        `https://backend-5gwv.onrender.com/api/perfil_deportista/${perfilId}`,
+        `http://localhost:3000/api/perfil_deportista/${perfilId}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

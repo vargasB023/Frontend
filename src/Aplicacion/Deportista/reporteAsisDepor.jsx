@@ -37,7 +37,7 @@ const parseToBogota = (dateStr, timeStr) => {
     }
     let mounted = true;
     axios
-      .get(`https://backend-5gwv.onrender.com/api/asistencia/deportista/${deportistaLS.ID_Deportista}`)
+      .get(`http://localhost:3000/api/asistencia/deportista/${deportistaLS.ID_Deportista}`)
       .then((res) => {
         if (mounted) setDeportista(res.data);
       })

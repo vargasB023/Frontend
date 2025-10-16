@@ -121,7 +121,7 @@ const FormularioDeportista = () => {
 
     try {
       await axios.post(
-        "https://backend-5gwv.onrender.com/api/deportista",
+        "http://localhost:3000/api/deportista",
         datos
       );
       alert("Deportista registrado con éxito");

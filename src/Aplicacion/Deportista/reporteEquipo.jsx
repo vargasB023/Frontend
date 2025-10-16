@@ -15,14 +15,14 @@ export default function ReporteEquipoDeportista() {
     setDeportista(dep);
 
     axios
-      .get(`https://backend-5gwv.onrender.com/api/deportista/${dep.ID_Deportista}`)
+      .get(`http://localhost:3000/api/deportista/${dep.ID_Deportista}`)
       .then((res) => {
         if (res.data?.equipo && res.data.equipo.length > 0) {
           const eq = res.data.equipo[0];
           setEquipo(eq);
 
           axios
-            .get(`https://backend-5gwv.onrender.com/api/equipo/${eq.ID_Equipo}`)
+            .get(`http://localhost:3000/api/equipo/${eq.ID_Equipo}`)
             .then((resp) => setIntegrantes(resp.data.deportista ?? []))
             .catch(() => alert("Error al cargar integrantes"));
         }

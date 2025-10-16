@@ -111,7 +111,7 @@ const FormularioLesiones = ({  onCancel }) => {
       };
 
       const response = await axios.post(
-        "https://backend-5gwv.onrender.com/api/h_lesiones_antes",
+        "http://localhost:3000/api/h_lesiones_antes",
         payload,
         {
           headers: {
