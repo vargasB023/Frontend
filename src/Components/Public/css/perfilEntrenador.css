@@ -1,5 +1,5 @@
 /* === CONTENEDOR PRINCIPAL === */
-.contenedor-perfil-columnas {
+.PerfilEnContenedorColumnas {
   max-width: 90%;
   margin: 0 auto;
   margin-top: 20px;
@@ -9,15 +9,16 @@
 }
 
 /* === TARJETA === */
-.tarjeta-perfil-columnas {
+.PerfilEnTarjetaColumnas {
   background: white;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  animation: aparecer-perfil-columnas 0.5s ease-out;
+  animation: PerfilEnAparecer 0.5s ease-out;
 }
 
-@keyframes aparecer-perfil-columnas {
+@keyframes PerfilEnAparecer {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -29,7 +30,7 @@
 }
 
 /* === ENCABEZADO === */
-.encabezado-acciones-perfil {
+.PerfilEnEncabezadoAcciones {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +40,7 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.titulo-pagina-perfil {
+.PerfilEnTituloPagina {
   font-size: 1.75rem;
   font-weight: 700;
   color: #1f2937;
@@ -49,7 +50,7 @@
   flex: 1 1 100%;
 }
 
-.botones-accion-perfil {
+.PerfilEnBotonesAccion {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -57,9 +58,10 @@
   width: 100%;
 }
 
-.boton-editar-columnas,
-.boton-guardar-columnas,
-.boton-cancelar-columnas {
+/* === BOTONES === */
+.PerfilEnBotonEditar,
+.PerfilEnBotonGuardar,
+.PerfilEnBotonCancelar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,40 +71,59 @@
   border-radius: 0.5rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   font-size: 0.875rem;
 }
 
-.boton-editar-columnas {
+.PerfilEnBotonEditar {
   background: #1a6f9d;
   color: white;
 }
 
-.boton-editar-columnas:hover {
+.PerfilEnBotonEditar:hover {
   background: #185a90;
   transform: translateY(-1px);
 }
-
-.boton-guardar-columnas {
+.PerfilEnBotonGuardarImagen{
   background: #1a6f9d;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 0.875rem;
 }
 
-.boton-guardar-columnas:hover {
-  background: #185a90;
+/* === NUEVO ESTILO BOTÓN GUARDAR === */
+.PerfilEnBotonGuardar {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 119, 182, 0.3);
 }
 
-.boton-cancelar-columnas {
+
+.PerfilEnBotonGuardar:hover {
+  background: linear-gradient(135deg, #0096c7, #48cae4);
+  transform: scale(1.03);
+}
+
+.PerfilEnBotonCancelar {
   background: #ef4444;
   color: white;
 }
 
-.boton-cancelar-columnas:hover {
+.PerfilEnBotonCancelar:hover {
   background: #dc2626;
 }
 
 /* === CONTENIDO COLUMNAS === */
-.contenido-columnas-perfil {
+.PerfilEnContenidoColumnas {
   display: grid;
   grid-template-columns: 300px 1fr 1fr;
   gap: 2rem;
@@ -110,7 +131,7 @@
 }
 
 /* === COLUMNA FOTO Y NOMBRE === */
-.columna-foto-nombre {
+.PerfilEnColumnaFotoNombre {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,7 +139,7 @@
   gap: 1.5rem;
 }
 
-.contenedor-foto-limpia {
+.PerfilEnContenedorFoto {
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -131,44 +152,46 @@
   position: relative;
 }
 
-.imagen-perfil-limpia {
+.PerfilEnImagenFoto {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.boton-camara-limpia {
+/* === BOTÓN DE CÁMARA === */
+.PerfilEnBotonCamara {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #1a6f9d;
+  background: linear-gradient(135deg, #1a6f9d, #0077b6);
   border: 3px solid white;
-  color: white;
+  color: #f8fafc;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  font-size: 1rem;
+  transition: all 0.25s ease;
+  font-size: 1.1rem;
 }
 
-.boton-camara-limpia:hover {
-  background: #185a90;
-  transform: scale(1.1);
+.PerfilEnBotonCamara:hover {
+  background: linear-gradient(135deg, #185a90, #0096c7);
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.4);
 }
 
 /* === DATOS PERSONALES Y PROFESIONALES === */
-.columna-datos-personales,
-.columna-datos-profesionales {
+.PerfilEnColumnaDatosPersonales,
+.PerfilEnColumnaDatosProfesionales {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-.titulo-seccion-columna {
+.PerfilEnTituloSeccion {
   font-size: 1.25rem;
   font-weight: 700;
   color: #1f2937;
@@ -178,20 +201,31 @@
 }
 
 /* === CAMPOS === */
-.campo-dato-personal,
-.campo-dato-profesional {
+.PerfilEnCampoDatoPersonal,
+.PerfilEnCampoDatoProfesional {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
-.etiqueta-con-icono {
+.PerfilEnEtiquetaConIcono {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  color: #0f4c75; /* Azul petróleo para iconos */
+  font-weight: 500;
 }
 
-.valor-campo-columna {
+.PerfilEnEtiquetaConIcono svg {
+  color: #0077b6;
+  transition: color 0.2s ease;
+}
+
+.PerfilEnEtiquetaConIcono svg:hover {
+  color: #0096c7;
+}
+
+.PerfilEnValorCampo {
   background: #f9fafb;
   padding: 0.6rem 0.9rem;
   border-radius: 0.5rem;
@@ -200,13 +234,13 @@
   font-size: 0.875rem;
 }
 
-/* === RESPONSIVE DESIGN === */
+/* === RESPONSIVE TABLET === */
 @media (max-width: 1024px) {
-  .contenido-columnas-perfil {
+  .PerfilEnContenidoColumnas {
     grid-template-columns: 1fr 1fr;
   }
 
-  .columna-foto-nombre {
+  .PerfilEnColumnaFotoNombre {
     grid-column: 1 / -1;
     flex-direction: row;
     justify-content: flex-start;
@@ -214,14 +248,15 @@
     gap: 1.5rem;
   }
 
-  .contenedor-foto-limpia {
+  .PerfilEnContenedorFoto {
     width: 120px;
     height: 120px;
   }
 }
-/* === RESPONSIVE MOBILE (imagen debajo del título y centrada) === */
+
+/* === RESPONSIVE MOBILE === */
 @media (max-width: 768px) {
-  .contenido-columnas-perfil {
+  .PerfilEnContenidoColumnas {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -229,40 +264,47 @@
     padding: 1.5rem;
   }
 
-  /* La imagen queda debajo del título y centrada */
-  .columna-foto-nombre {
-    order: 1; /* aparece primero en móviles */
+  .PerfilEnColumnaFotoNombre {
+    order: 1;
     flex-direction: column;
     align-items: center;
     text-align: center;
     width: 100%;
   }
 
-  .contenedor-foto-limpia {
+  .PerfilEnContenedorFoto {
     width: 140px;
     height: 140px;
     margin: 0 auto;
   }
 
-  /* Información debajo de la imagen */
-  .columna-datos-personales,
-  .columna-datos-profesionales {
+  .PerfilEnColumnaDatosPersonales,
+  .PerfilEnColumnaDatosProfesionales {
     order: 2;
     width: 100%;
   }
 
-  .titulo-seccion-columna {
+  .PerfilEnTituloSeccion {
     text-align: center;
   }
 
-  .contenido-columnas-perfil > * {
+  .PerfilEnContenidoColumnas > * {
     width: 100%;
   }
 }
 
+/* === EXTRA SMALL SCREENS === */
 @media (max-width: 480px) {
-  .contenedor-foto-limpia {
+  .PerfilEnContenedorFoto {
     width: 120px;
     height: 120px;
+  }
+
+  .PerfilEnTituloPagina {
+    font-size: 1.4rem;
+  }
+
+  .PerfilEnValorCampo {
+    font-size: 0.8rem;
   }
 }

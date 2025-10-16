@@ -53,7 +53,7 @@ export default function inicio({setUser}) {
 
      try {
       const res = await axios.post(
-        "http://localhost:3000/api/deportista/login",
+        "https://backend-5gwv.onrender.com/api/deportista/login",
         {
           email: correo,
           Contrasena: contrasena,

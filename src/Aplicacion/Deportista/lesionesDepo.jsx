@@ -17,7 +17,7 @@ const LesionesDeportistaView = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `http://localhost:3000/api/deportista/lesiones/${deportista.ID_Deportista}`
+          `https://backend-5gwv.onrender.com/api/deportista/lesiones/${deportista.ID_Deportista}`
         );
         setLesiones(res.data);
       } catch (error) {
@@ -53,7 +53,7 @@ const LesionesDeportistaView = () => {
             try {
               setLoading(true);
               const res = await axios.get(
-                `http://localhost:3000/api/deportista/lesiones/${deportista.ID_Deportista}`
+                `https://backend-5gwv.onrender.com/api/deportista/lesiones/${deportista.ID_Deportista}`
               );
               setLesiones(res.data);
             } catch (error) {

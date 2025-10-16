@@ -1,106 +1,93 @@
-/* 🎨 Contenedor principal */
+/* 🌈 CONTENEDOR PRINCIPAL */
 .repAsisDep-contenedor {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  max-width: 1500px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background: linear-gradient(145deg, #f8fafc, #eef2f7);
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
 
-/* 👤 Header */
+/* 👤 HEADER */
 .repAsisDep-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 15px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(26, 111, 157, 0.12);
-  margin-bottom: 25px;
-  flex-wrap: wrap; /* 📱 permite que el contenido baje en pantallas chicas */
+  gap: 15px;
+  padding: 20px 25px;
+  border-radius: 16px;
+  color: #3c84cc;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
 }
 
 .repAsisDep-iconoUsuario {
-  color: #1a6f9d;
   font-size: 28px;
 }
 
 .repAsisDep-nombre {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #114b6e;
-  word-break: break-word;
+  color: #134568;
 }
 
-/* 📋 Título */
+/* 📋 TÍTULO */
 .repAsisDep-titulo {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  color: #1a6f9d;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0b486b;
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
-/* 📌 Lista de asistencias */
+/* 🗂️ LISTA DE ASISTENCIAS */
 .repAsisDep-lista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 🔑 Ajusta cards */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
 }
 
-/* 📦 Card de asistencia */
+/* 📦 CARD */
 .repAsisDep-card {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 18px;
-  box-shadow: 0 4px 15px rgba(26, 111, 157, 0.12);
-  transition: transform 0.2s ease-in-out;
+  border-radius: 16px;
+  padding: 22px 25px;
+  box-shadow: 0 4px 20px rgba(26, 111, 157, 0.1);
+  transition: all 0.25s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-left: 6px solid #1a6f9d;
 }
 
 .repAsisDep-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(26, 111, 157, 0.2);
+  border-left-color: #219ebc;
 }
 
-/* ℹ️ Información */
-.repAsisDep-info {
-  flex: 1;
-  min-width: 0; /* 🔑 evita que el texto desborde */
-}
-
+/* 📄 INFO */
 .repAsisDep-evento {
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #114b6e;
   margin-bottom: 6px;
 }
 
 .repAsisDep-fecha {
   font-size: 0.95rem;
-  color: #374151;
-  word-break: break-word;
+  color: #555;
+  margin-bottom: 8px;
 }
 
-.repAsisDep-observacion {
-  font-size: 0.9rem;
-  margin-top: 8px;
-  color: #1a6f9d;
-  word-break: break-word;
-}
-
-/* ✅❌ Estado */
 .repAsisDep-estado {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 12px;
-  flex-shrink: 0; /* evita que se deforme en pantallas chicas */
+  margin-top: 10px;
 }
 
 .repAsisDep-iconoPresente {
@@ -113,50 +100,63 @@
   font-size: 20px;
 }
 
-.repAsisDep-textoEstado {
-  font-weight: 600;
-  text-transform: capitalize;
-}
-
 .repAsisDep-textoPresente {
   color: #15803d;
+  font-weight: 600;
 }
 
 .repAsisDep-textoAusente {
   color: #b91c1c;
+  font-weight: 600;
 }
 
-/* 🔄 Estados vacíos */
+/* 🔄 VACÍO O CARGANDO */
 .repAsisDep-cargando,
 .repAsisDep-vacio {
   text-align: center;
   font-size: 1.1rem;
   color: #1a6f9d;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
-/* 📱 Responsividad */
-@media (min-width: 768px) {
+/* 📱 RESPONSIVIDAD */
+@media (max-width: 768px) {
+  .repAsisDep-contenedor {
+    padding: 25px 20px;
+    margin: 25px 15px;
+  }
+
+  .repAsisDep-header {
+    padding: 15px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .repAsisDep-titulo {
+    font-size: 1.5rem;
+    justify-content: center;
+  }
+
   .repAsisDep-card {
-    flex-direction: row;
-    align-items: center;
+    padding: 18px;
   }
 }
 
 @media (max-width: 480px) {
-  .repAsisDep-nombre {
-    font-size: 1.2rem;
+  .repAsisDep-contenedor {
+    padding: 20px;
+    margin: 15px 10px;
+  }
+
+  .repAsisDep-card {
+    padding: 15px;
+  }
+
+  .repAsisDep-titulo {
+    font-size: 1.3rem;
   }
 
   .repAsisDep-evento {
     font-size: 1rem;
-  }
-
-  .repAsisDep-titulo {
-    font-size: 1.4rem;
-  }
-
-  .repAsisDep-card {
-    padding: 14px;
   }
 }

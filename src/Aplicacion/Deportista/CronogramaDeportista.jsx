@@ -18,14 +18,14 @@ export default function CronogramaDeportista() {
         setDeportista(dep);
 
         // Obtener datos del deportista y su equipo
-        const res = await axios.get(`http://localhost:3000/api/deportista/${dep.ID_Deportista}`);
+        const res = await axios.get(`https://backend-5gwv.onrender.com/api/deportista/${dep.ID_Deportista}`);
         
         if (res.data?.equipo && res.data.equipo.length > 0) {
           const eq = res.data.equipo[0];
           setEquipo(eq);
 
           // Obtener eventos del equipo
-          const respEventos = await axios.get(`http://localhost:3000/api/cronograma/equipo/${eq.ID_Equipo}`);
+          const respEventos = await axios.get(`https://backend-5gwv.onrender.com/api/cronograma/equipo/${eq.ID_Equipo}`);
           setEventos(respEventos.data);
         } else {
           setEquipo(null);

@@ -1,177 +1,248 @@
-
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
+/* === CONTENEDOR GENERAL === */
 .horizontal {
   display: flex;
   justify-content: center;
- 
+  align-items: flex-start;
+  padding: 40px;
+  background: #f5f7fb;
+  min-height: 100vh;
 }
 
+/* === TARJETA PRINCIPAL === */
 .contenedor-perfil-columnas {
   width: 100%;
-  max-width: 1550px;
-}
-
-.tarjeta-perfil-columnas {
+  max-width: 1200px;
   background: #fff;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px 40px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
+/* === ENCABEZADO === */
 .encabezado-acciones-perfil {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
 }
 
 .titulo-pagina-perfil {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 600;
+  font-size: 1.8rem;
+  color: #222;
+  font-weight: 700;
 }
 
-.botones-accion-perfil button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background-color .2s;
+.botones-accion-perfil {
+  display: flex;
+  gap: 12px;
 }
 
+/* === BOTONES === */
 .boton-editar-columnas,
-.boton-guardar-columnas {
+.boton-guardar-columnas,
+.boton-cancelar-columnas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.boton-editar-columnas {
   background: #1a6f9d;
   color: #fff;
 }
-.boton-editar-columnas:hover,
-.boton-guardar-columnas:hover {
-  background: #185a90;
+.boton-editar-columnas:hover {
+  background: #0062cc;
 }
+
+.boton-guardar-columnas {
+  display: block;              /* Permite usar margin auto */
+  margin: 20px auto;           /* Centra el botón horizontalmente */
+  padding: 10px 20px;          /* Espaciado interno */
+  background: #1a6f9d;         /* Color de fondo */
+  color: #fff;                 /* Texto blanco */
+  border: none;                /* Quita bordes por defecto */
+  border-radius: 8px;          /* Bordes redondeados */
+  font-size: 16px;             /* Tamaño del texto */
+  font-weight: 500;            /* Peso de fuente medio */
+  cursor: pointer;             /* Cambia el cursor */
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover */
+.boton-guardar-columnas:hover {
+  background: #155b80;
+  transform: scale(1.03);
+}
+
+/* Efecto al hacer clic */
+.boton-guardar-columnas:active {
+  transform: scale(0.97);
+}
+
+
 .boton-cancelar-columnas {
-  background: #e5e7eb;
+  background: #dc3545;
+  color: #fff;
 }
 .boton-cancelar-columnas:hover {
-  background: #d1d5db;
+  background: #c82333;
 }
 
-.icono-boton-columnas { font-size: 1rem; }
-
-/* ===== Contenido ===== */
+/* === ESTRUCTURA DE COLUMNAS === */
 .contenido-columnas-perfil {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1.2fr 0.8fr;
+  gap: 30px;
+  margin-top: 20px;
 }
 
-/* ---- Columnas ---- */
-.columna-foto-nombre,
-.columna-datos-personales,
-.columna-datos-profesionales {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+/* === COLUMNA FOTO === */
+.columna-foto-nombre {
+  text-align: center;
 }
-.columna-foto-nombre { align-items: center; }
-
-/* ---- Foto ---- */
-.seccion-foto-perfil { position: relative; }
 
 .contenedor-foto-limpia {
   position: relative;
   width: 180px;
-  aspect-ratio: 1/1;
-}
-.imagen-perfil-limpia,
-.placeholder-foto-limpia {
-  width: 100%; height: 100%;
+  height: 180px;
+  margin: 0 auto 15px;
   border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #e0e0e0;
+}
+
+.imagen-perfil-limpia {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background: #f3f4f6;
-  display: flex; align-items: center; justify-content: center;
 }
-.icono-usuario-grande { font-size: 4rem; color: #9ca3af; }
 
+.placeholder-foto-limpia {
+  width: 100%;
+  height: 100%;
+  background: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icono-usuario-grande {
+  width: 70px;
+  height: 70px;
+  color: #adb5bd;
+}
+
+/* Botón cámara */
 .boton-camara-limpia {
-  position: absolute; bottom: 0.4rem; right: 0.4rem;
-  background: #1a6f9d; color: #fff;
-  width: 2.5rem; height: 2.5rem;
-  border: none; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: background-color .2s;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background:#1a6f9d ;
+  color: #fff;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
-.boton-camara-limpia:hover { background: #185a90; }
-
-.input-archivo-oculto { display: none; }
+.boton-camara-limpia:hover {
+  background: #007bff;
+}
 
 .info-nombre-perfil h2 {
-  font-size: 1.35rem;
-  text-align: center;
+  margin: 10px 0 4px;
+  color: #333;
 }
-.info-nombre-perfil p { text-align: center; color: #6b7280; }
+.rol-deportista {
+  color: #777;
+  font-size: 0.95rem;
+}
+.edad-deportista {
+  color: #444;
+  font-weight: 600;
+}
 
-/* ---- Listas y campos ---- */
+/* === COLUMNAS DATOS === */
 .titulo-seccion-columna {
-  font-size: 1.1rem; font-weight: 600;
-  border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
 }
 
 .lista-campos-personales,
-.lista-campos-profesionales { display: flex; flex-direction: column; gap: .75rem; }
+.lista-campos-profesionales {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-.campo-dato-personal,
-.campo-dato-profesional { 
-  display: flex; 
-  flex-direction: column; }
+.campo-dato-personal {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
 .etiqueta-con-icono {
-  display: flex; align-items: center; gap: 0.5rem;
-  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+  font-weight: 500;
 }
-.icono-campo-columna { font-size: 1rem; }
-.etiqueta-campo-columna { font-weight: 500; }
 
-.valor-campo-columna,
-.valor-texto-columna { margin-left: 1.5rem; color: #374151; }
+.icono-campo-columna {
+  width: 18px;
+  height: 18px;
+  color: #007bff;
+}
+
+.valor-campo-columna {
+  color: #333;
+  font-weight: 500;
+  margin-left: 24px;
+}
 
 .input-campo-columna {
-  margin-left: 1.5rem;
-  padding: 0.35rem 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.35rem;
+  margin-left: 24px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
   font-size: 0.95rem;
+  width: 85%;
+}
+.input-campo-columna:focus {
+  border-color: #007bff;
 }
 
-/* ========= BREAKPOINTS ========= */
-@media (max-width: 992px) {
-  .contenido-columnas-perfil { grid-template-columns: 1fr 1fr; }
-  .columna-foto-nombre { grid-column: span 2; flex-direction: row; gap: 1.5rem; }
-}
-
-@media (max-width: 600px) {
-  .contenido-columnas-perfil { grid-template-columns: 1fr; }
-  .columna-foto-nombre { flex-direction: column; }
-  .botones-accion-perfil {
-    width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 0.75rem;
+/* === MARGENES Y RESPONSIVIDAD === */
+@media (max-width: 1024px) {
+  .contenido-columnas-perfil {
+    grid-template-columns: 1fr 1fr;
   }
-  .boton-editar-columnas,
-  .boton-guardar-columnas,
-  .boton-cancelar-columnas { flex: 1 1 140px; }
 }
-
-@media (max-width: 400px) {
-  .imagen-perfil-limpia,
-  .placeholder-foto-limpia { width: 140px; height: 140px; }
-  .boton-camara-limpia { width: 2rem; height: 2rem; }
+@media (max-width: 768px) {
+  .contenido-columnas-perfil {
+    grid-template-columns: 1fr;
+  }
+  .horizontal {
+    padding: 20px;
+  }
+  .contenedor-perfil-columnas {
+    padding: 20px;
+  }
 }

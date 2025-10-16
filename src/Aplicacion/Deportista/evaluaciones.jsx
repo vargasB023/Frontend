@@ -29,7 +29,7 @@ export default function ReporteEvaluacionesDeportista() {
           setCargando(false);
           return;
         }
-        const responseEvaluaciones = await axios.get(`http://localhost:3000/api/evaluacion`);
+        const responseEvaluaciones = await axios.get(`https://backend-5gwv.onrender.com/api/evaluacion`);
         const todasEvaluaciones = responseEvaluaciones.data;
 
         const evaluacionDelDeportista = todasEvaluaciones.find(
@@ -44,7 +44,7 @@ export default function ReporteEvaluacionesDeportista() {
           return;
         }
         const responseReporte = await axios.get(
-          `http://localhost:3000/api/evaluacion/reporte/${evaluacionDelDeportista.ID_Evaluacion_De}`
+          `https://backend-5gwv.onrender.com/api/evaluacion/reporte/${evaluacionDelDeportista.ID_Evaluacion_De}`
         );
 
         setDeportista(responseReporte.data.deportista);

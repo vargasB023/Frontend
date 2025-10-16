@@ -1,9 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import {
-  FaCamera, FaEdit, FaSave, FaTimes, FaUser, FaIdCard, FaBirthdayCake,FaVenusMars, FaMapMarkerAlt, FaPhone, FaHeartbeat, FaTint,
-  FaTrophy, FaHashtag, FaNotesMedical, FaUsers} from "react-icons/fa";
-import '../../Components/Public/css/perfilDeportista.css'
+  Camera,
+  Edit,
+  Save,
+  X,
+  User,
+  IdCard,
+  Calendar,
+  Venus,
+  MapPin,
+  Phone,
+  HeartPulse,
+  Droplets,
+  Trophy,
+  Hash,
+  FileText,
+  Users,
+} from "lucide-react";
+import "../../Components/Public/css/perfilDeportista.css";
 
 export default function PerfilDeportista() {
   const [datosDeportista, setDatosDeportista] = useState(null);
@@ -21,7 +36,7 @@ export default function PerfilDeportista() {
     const obtenerPerfil = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/perfil_deportista/${deportista.perfil_Deportista.ID_Perfil_Deportista}`
+          `https://backend-5gwv.onrender.com/api/perfil_deportista/${deportista.perfil_Deportista.ID_Perfil_Deportista}`
         );
         setDatosDeportista(deportista);
         setDatosTemporales(deportista);
@@ -36,15 +51,15 @@ export default function PerfilDeportista() {
     if (deportista) {
       obtenerPerfil();
     }
-  }, [deportista.ID_Deportista]);
+  }, [deportista?.ID_Deportista]);
 
   const manejarCambioCampo = (campo, valor) =>
-    setDatosTemporales(prev => ({ ...prev, [campo]: valor }));
+    setDatosTemporales((prev) => ({ ...prev, [campo]: valor }));
 
   const guardarCambios = async () => {
     try {
       await axios.put(
-        `http://localhost:3000/api/deportista/${deportista.ID_Deportista}`,
+        `https://backend-5gwv.onrender.com/api/deportista/${deportista.ID_Deportista}`,
         {
           ...deportista,
           direccion: datosTemporales.direccion,
@@ -99,7 +114,7 @@ export default function PerfilDeportista() {
       const perfilId = deportista.perfil_Deportista.ID_Perfil_Deportista;
 
       const response = await axios.put(
-        `http://localhost:3000/api/perfil_deportista/${perfilId}`,
+        `https://backend-5gwv.onrender.com/api/perfil_deportista/${perfilId}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -108,8 +123,6 @@ export default function PerfilDeportista() {
       setMensajeFoto(response.data.mensaje);
       setFotoPerfil(nuevaFoto);
       setPreview(nuevaFoto);
-
-      console.log("Respuesta:", response.data);
     } catch (error) {
       console.error("Error al subir:", error.response?.data || error.message);
       setMensajeFoto("Error al subir la imagen.");
@@ -118,10 +131,14 @@ export default function PerfilDeportista() {
 
   const abrirSelectorArchivo = () => inputArchivoRef.current?.click();
 
-  const formatearFecha = f =>
-    new Date(f).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
+  const formatearFecha = (f) =>
+    new Date(f).toLocaleDateString("es-ES", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
 
-  const calcularEdad = f => {
+  const calcularEdad = (f) => {
     const hoy = new Date(),
       nac = new Date(f);
     let edad = hoy.getFullYear() - nac.getFullYear();
@@ -134,51 +151,54 @@ export default function PerfilDeportista() {
 
   const opcionesGenero = ["MASCULINO", "FEMENINO"];
   const opcionesPosicion = [
-    "CENTRAL", "REMATADOR", "LIBERO", "ARMADOR",
-    "ZAGUERO DERECHO", "ZAGUERO IZQUIERDO"
+    "CENTRAL",
+    "REMATADOR",
+    "LIBERO",
+    "ARMADOR",
+    "ZAGUERO DERECHO",
+    "ZAGUERO IZQUIERDO",
   ];
-  const opcionesSangre = ["B+","B-","A+","A-","AB+","AB-","O+","O-"];
-  const opcionesParentesco = ["PADRE","MADRE","HERMANO","HERMANA","TUTOR LEGAL"];
+  const opcionesSangre = ["B+", "B-", "A+", "A-", "AB+", "AB-", "O+", "O-"];
+  const opcionesParentesco = ["PADRE", "MADRE", "HERMANO", "HERMANA", "TUTOR LEGAL"];
 
   return (
     <div className="horizontal">
       <div className="contenedor-perfil-columnas">
         <div className="tarjeta-perfil-columnas">
-  
           <div className="encabezado-acciones-perfil">
             <h1 className="titulo-pagina-perfil">Mi Perfil</h1>
             <div className="botones-accion-perfil">
               {modoEdicion ? (
                 <>
                   <button className="boton-guardar-columnas" onClick={guardarCambios}>
-                    <FaSave className="icono-boton-columnas" /> Guardar
+                    <Save className="icono-boton-columnas" /> Guardar
                   </button>
                   <button className="boton-cancelar-columnas" onClick={cancelarEdicion}>
-                    <FaTimes className="icono-boton-columnas" /> Cancelar
+                    <X className="icono-boton-columnas" /> Cancelar
                   </button>
                 </>
               ) : (
                 <button className="boton-editar-columnas" onClick={() => setModoEdicion(true)}>
-                  <FaEdit className="icono-boton-columnas" /> Editar Perfil
+                  <Edit className="icono-boton-columnas" /> Editar Perfil
                 </button>
               )}
             </div>
           </div>
 
           <div className="contenido-columnas-perfil">
+            {/* ==== FOTO PERFIL ==== */}
             <div className="columna-foto-nombre">
-              {/* ==== FOTO PERFIL ==== */}
               <div className="seccion-foto-perfil">
                 <div className="contenedor-foto-limpia">
                   {preview ? (
                     <img src={preview} alt="Perfil" className="imagen-perfil-limpia" />
                   ) : (
                     <div className="placeholder-foto-limpia">
-                      <FaUser className="icono-usuario-grande" />
+                      <User className="icono-usuario-grande" />
                     </div>
                   )}
                   <button className="boton-camara-limpia" onClick={abrirSelectorArchivo}>
-                    <FaCamera />
+                    <Camera />
                   </button>
                 </div>
 
@@ -191,21 +211,19 @@ export default function PerfilDeportista() {
                 />
                 <button
                   onClick={handleSubmitFoto}
-                  className="w-full bg-[#1a6f9d] text-white py-1 px-2 rounded-lg mt-2 hover:bg-[#235eb5] transition"
+                  className="boton-guardar-columnas"
                 >
                   Guardar Imagen
                 </button>
-                {mensajeFoto && (
-                  <p className="mt-2 text-sm font-medium text-red-600">
-                    {mensajeFoto}
-                  </p>
-                )}
+                {mensajeFoto && <p className="mensaje-error">{mensajeFoto}</p>}
               </div>
 
               <div className="info-nombre-perfil">
                 <h2 className="nombre-completo-perfil">{datosDeportista.nombre_Completo}</h2>
                 <p className="rol-deportista">Deportista</p>
-                <p className="edad-deportista">{calcularEdad(datosDeportista.fecha_Nacimiento)} años</p>
+                <p className="edad-deportista">
+                  {calcularEdad(datosDeportista.fecha_Nacimiento)} años
+                </p>
               </div>
             </div>
 
@@ -213,49 +231,82 @@ export default function PerfilDeportista() {
             <div className="columna-datos-personales">
               <h3 className="titulo-seccion-columna">Información Personal</h3>
               <div className="lista-campos-personales">
-                <CampoValor label="Documento" icon={FaIdCard} valor={datosDeportista.no_Documento}/>
-                <CampoValor label="Fecha de Nacimiento" icon={FaBirthdayCake} valor={formatearFecha(datosDeportista.fecha_Nacimiento)}/>
-                <CampoEditable
-                  modoEdicion={modoEdicion} label="Género" icon={FaVenusMars}
-                  campo="genero" valor={datosTemporales.genero}
-                  renderEdit={() => (
-                    <SelectOpciones valor={datosTemporales.genero} opciones={opcionesGenero} onChange={v => manejarCambioCampo("genero", v)} />
-                  )}
-                />
-                <CampoEditableInput campo="direccion" label="Dirección" icon={FaMapMarkerAlt}/>
-                <CampoEditableInput campo="telefono" label="Teléfono" icon={FaPhone}/>
-                <CampoEditableInput campo="eps" label="EPS" icon={FaHeartbeat}/>
-                <CampoEditable
-                  modoEdicion={modoEdicion} label="Tipo de Sangre" icon={FaTint}
-                  campo="tipo_De_Sangre" valor={datosTemporales.tipo_De_Sangre}
-                  renderEdit={() => (
-                    <SelectOpciones valor={datosTemporales.tipo_De_Sangre} opciones={opcionesSangre} onChange={v => manejarCambioCampo("tipo_De_Sangre", v)} />
-                  )}
+                <CampoValor label="Documento" icon={IdCard} valor={datosDeportista.no_Documento} />
+                <CampoValor
+                  label="Fecha de Nacimiento"
+                  icon={Calendar}
+                  valor={formatearFecha(datosDeportista.fecha_Nacimiento)}
                 />
                 <CampoEditable
-                  modoEdicion={modoEdicion} label="Posición" icon={FaTrophy}
-                  campo="posicion" valor={datosTemporales.posicion}
+                  modoEdicion={modoEdicion}
+                  label="Género"
+                  icon={Venus}
+                  campo="genero"
+                  valor={datosTemporales.genero}
                   renderEdit={() => (
-                    <SelectOpciones valor={datosTemporales.posicion} opciones={opcionesPosicion} onChange={v => manejarCambioCampo("posicion", v)} />
+                    <SelectOpciones
+                      valor={datosTemporales.genero}
+                      opciones={opcionesGenero}
+                      onChange={(v) => manejarCambioCampo("genero", v)}
+                    />
                   )}
                 />
-                <CampoEditableInput campo="dorsal" label="Dorsal" icon={FaHashtag}/>
-                <CampoEditableInput campo="alergias" label="Alergias" icon={FaNotesMedical}/>
+                <CampoEditableInput campo="direccion" label="Dirección" icon={MapPin} />
+                <CampoEditableInput campo="telefono" label="Teléfono" icon={Phone} />
+                <CampoEditableInput campo="eps" label="EPS" icon={HeartPulse} />
+                <CampoEditable
+                  modoEdicion={modoEdicion}
+                  label="Tipo de Sangre"
+                  icon={Droplets}
+                  campo="tipo_De_Sangre"
+                  valor={datosTemporales.tipo_De_Sangre}
+                  renderEdit={() => (
+                    <SelectOpciones
+                      valor={datosTemporales.tipo_De_Sangre}
+                      opciones={opcionesSangre}
+                      onChange={(v) => manejarCambioCampo("tipo_De_Sangre", v)}
+                    />
+                  )}
+                />
+                <CampoEditable
+                  modoEdicion={modoEdicion}
+                  label="Posición"
+                  icon={Trophy}
+                  campo="posicion"
+                  valor={datosTemporales.posicion}
+                  renderEdit={() => (
+                    <SelectOpciones
+                      valor={datosTemporales.posicion}
+                      opciones={opcionesPosicion}
+                      onChange={(v) => manejarCambioCampo("posicion", v)}
+                    />
+                  )}
+                />
+                <CampoEditableInput campo="dorsal" label="Dorsal" icon={Hash} />
+                <CampoEditableInput campo="alergias" label="Alergias" icon={FileText} />
               </div>
             </div>
 
+            {/* ---- Columna de Contacto ---- */}
             <div className="columna-datos-profesionales">
               <h3 className="titulo-seccion-columna">Contacto Emergencia</h3>
               <div className="lista-campos-profesionales">
-                <CampoEditableInput campo="nombre_Contacto" label="Nombre" icon={FaUser}/>
+                <CampoEditableInput campo="nombre_Contacto" label="Nombre" icon={User} />
                 <CampoEditable
-                  modoEdicion={modoEdicion} label="Parentesco" icon={FaUsers}
-                  campo="parentesco_Contacto" valor={datosTemporales.parentesco_Contacto}
+                  modoEdicion={modoEdicion}
+                  label="Parentesco"
+                  icon={Users}
+                  campo="parentesco_Contacto"
+                  valor={datosTemporales.parentesco_Contacto}
                   renderEdit={() => (
-                    <SelectOpciones valor={datosTemporales.parentesco_Contacto} opciones={opcionesParentesco} onChange={v => manejarCambioCampo("parentesco_Contacto", v)} />
+                    <SelectOpciones
+                      valor={datosTemporales.parentesco_Contacto}
+                      opciones={opcionesParentesco}
+                      onChange={(v) => manejarCambioCampo("parentesco_Contacto", v)}
+                    />
                   )}
                 />
-                <CampoEditableInput campo="telefono_Contacto" label="Teléfono" icon={FaPhone}/>
+                <CampoEditableInput campo="telefono_Contacto" label="Teléfono" icon={Phone} />
               </div>
             </div>
           </div>
@@ -280,13 +331,16 @@ export default function PerfilDeportista() {
   function CampoEditableInput({ campo, label, icon: Icono }) {
     return (
       <CampoEditable
-        modoEdicion={modoEdicion} label={label} icon={Icono}
-        campo={campo} valor={datosTemporales[campo]}
+        modoEdicion={modoEdicion}
+        label={label}
+        icon={Icono}
+        campo={campo}
+        valor={datosTemporales[campo]}
         renderEdit={() => (
           <input
             type="text"
             value={datosTemporales[campo] || ""}
-            onChange={e => manejarCambioCampo(campo, e.target.value)}
+            onChange={(e) => manejarCambioCampo(campo, e.target.value)}
             className="input-campo-columna"
           />
         )}
@@ -301,9 +355,7 @@ export default function PerfilDeportista() {
           <Icono className="icono-campo-columna" />
           <span className="etiqueta-campo-columna">{label}</span>
         </div>
-        {modoEdicion ? renderEdit() : (
-          <span className="valor-campo-columna">{valor}</span>
-        )}
+        {modoEdicion ? renderEdit() : <span className="valor-campo-columna">{valor}</span>}
       </div>
     );
   }
@@ -312,12 +364,16 @@ export default function PerfilDeportista() {
     return (
       <select
         value={valor || ""}
-        onChange={e => onChange(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         className="input-campo-columna"
       >
-        <option value="" disabled>Seleccione…</option>
-        {opciones.map(op => (
-          <option key={op} value={op}>{op}</option>
+        <option value="" disabled>
+          Seleccione…
+        </option>
+        {opciones.map((op) => (
+          <option key={op} value={op}>
+            {op}
+          </option>
         ))}
       </select>
     );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaBell, FaUser, FaSignOutAlt, FaCog } from "react-icons/fa";
+import { FaUser, FaSignOutAlt } from "react-icons/fa"; // 👈 Eliminado FaCog y FaBell
 import "./css/encabezado_Depor.css";
 import gadderNuevo from "./img/gadderBlanco.png";
 
@@ -15,10 +15,9 @@ export default function Encabezado_Deportista({ setSeccion }) {
   const cerrarMenu = () => setMenuUsuarioAbierto(false);
 
   const cerrarSesion = () => {
-    // Borra todos los datos del localStorage
     localStorage.clear("deportista");
     setMenuUsuarioAbierto(false);
-    navigate("/"); // Redirige al login o página principal
+    navigate("/"); // Redirige al login
   };
 
   return (
@@ -82,15 +81,6 @@ export default function Encabezado_Deportista({ setSeccion }) {
                     <FaUser className="icono-menu" />
                     Mi Perfil
                   </div>
-
-                  <Link
-                    to="/configuracion"
-                    className="opcion-menu"
-                    onClick={cerrarMenu}
-                  >
-                    <FaCog className="icono-menu" />
-                    Configuración
-                  </Link>
 
                   <hr className="linea-menu" />
 

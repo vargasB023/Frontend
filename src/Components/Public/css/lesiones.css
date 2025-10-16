@@ -242,6 +242,64 @@
   text-transform: none; /* respeta el snake_case sin poner capital */
   font-family: monospace; /* opcional, para dar aspecto técnico */
 }
+/* === BOTÓN GUARDAR IMAGEN PERFIL === */
+.perfil_boton_guardar_imagen {
+  display: block;
+  margin: 10px auto 0; /* centrado */
+  background: #1a6f9d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.perfil_boton_guardar_imagen:hover {
+  background: #155a7f;
+  transform: translateY(-1px);
+}
+
+/* === BOTÓN CÁMARA PERFIL === */
+.perfil_boton_camara {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #1a6f9d;
+  color: #fff;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.perfil_boton_camara:hover {
+  background: #155a7f;
+  transform: scale(1.1);
+}
+
+/* === BOTÓN EDITAR PERFIL === */
+.perfil_boton_editar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1a6f9d;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.perfil_boton_editar:hover {
+  background: #155a7f;
+}
+
 
 
 /* RESPONSIVE */

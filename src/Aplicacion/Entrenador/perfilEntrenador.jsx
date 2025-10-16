@@ -139,97 +139,99 @@ export default function PerfilEntrenador() {
   };
 
   if (!datosEntrenador) return <p>Cargando perfil...</p>;
-
-  return (
-    <div>
-      <div className="horizontal">
-      <div className="contenedor-perfil-columnas">
-        <div className="tarjeta-perfil-columnas">
-          <div className="encabezado-acciones-perfil">
-            <h1 className="titulo-pagina-perfil">Mi Perfil</h1>
-            <div className="botones-accion-perfil">
+return (
+  <div>
+    <div className="PerfilEnHorizontal">
+      <div className="PerfilEnContenedorColumnas">
+        <div className="PerfilEnTarjetaColumnas">
+          <div className="PerfilEnEncabezadoAcciones">
+            <h1 className="PerfilEnTituloPagina">Mi Perfil</h1>
+            <div className="PerfilEnBotonesAccion">
               {!modoEdicion ? (
                 <button
-                  className="boton-editar-columnas"
+                  className="PerfilEnBotonEditar"
                   onClick={() => setModoEdicion(true)}
                 >
-                  <FaEdit className="icono-boton-columnas" /> Editar Perfil
+                  <FaEdit className="PerfilEnIconoBoton" /> Editar Perfil
                 </button>
               ) : (
                 <>
                   <button
-                    className="boton-guardar-columnas"
+                    className="PerfilEnBotonGuardar"
                     onClick={guardarCambios}
                   >
-                    <FaSave className="icono-boton-columnas" /> Guardar
+                    <FaSave className="PerfilEnIconoBoton" /> Guardar
                   </button>
                   <button
-                    className="boton-cancelar-columnas"
+                    className="PerfilEnBotonCancelar"
                     onClick={cancelarEdicion}
                   >
-                    <FaTimes className="icono-boton-columnas" /> Cancelar
+                    <FaTimes className="PerfilEnIconoBoton" /> Cancelar
                   </button>
                 </>
               )}
             </div>
           </div>
-            <div className="contenido-columnas-perfil">
-              <div className="columna-foto-nombre">
-                <div className="seccion-foto-perfil">
-                  <div className="contenedor-foto-limpia">
-                    {preview ? (
-                      <img
-                        src={preview}
-                        alt="Perfil"
-                        className="imagen-perfil-limpia"
-                      />
-                    ) : (
-                      <div className="placeholder-foto-limpia">
-                        <FaUser className="icono-usuario-grande" />
-                      </div>
-                    )}
-                    <button
-                      className="boton-camara-limpia"
-                      onClick={abrirSelectorArchivo}
-                    >
-                      <FaCamera />
-                    </button>
-                  </div>
 
-                  <input
-                    ref={inputArchivoRef}
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    className="input-archivo-oculto"
-                  />
-                  <button
-                    onClick={handleSubmitFoto}
-                    className="w-full bg-[#1a6f9d] text-white py-1 px-2 rounded-lg mt-2 hover:bg-[#235eb5] transition"
-                  >
-                    Guardar Imagen
-                  </button>
-                  {mensajeFoto && (
-                    <p className="mt-2 text-sm font-medium text-red-600">
-                      {mensajeFoto}
-                    </p>
+          <div className="PerfilEnContenidoColumnas">
+            {/* === FOTO Y NOMBRE === */}
+            <div className="PerfilEnColumnaFotoNombre">
+              <div className="PerfilEnSeccionFoto">
+                <div className="PerfilEnContenedorFoto">
+                  {preview ? (
+                    <img
+                      src={preview}
+                      alt="Perfil"
+                      className="PerfilEnImagen"
+                    />
+                  ) : (
+                    <div className="PerfilEnFotoPlaceholder">
+                      <FaUser className="PerfilEnIconoUsuario" />
+                    </div>
                   )}
+                  <button
+                    className="PerfilEnBotonCamara"
+                    onClick={abrirSelectorArchivo}
+                  >
+                    <FaCamera />
+                  </button>
                 </div>
-              <div className="info-nombre-perfil">
-                <h2 className="nombre-completo-perfil">
+
+                <input
+                  ref={inputArchivoRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="PerfilEnInputArchivoOculto"
+                />
+
+                <button
+                  onClick={handleSubmitFoto}
+                  className="PerfilEnBotonGuardarImagen"
+                >
+                  Guardar Imagen
+                </button>
+
+                {mensajeFoto && (
+                  <p className="PerfilEnMensajeFoto">{mensajeFoto}</p>
+                )}
+              </div>
+
+              <div className="PerfilEnInfoNombre">
+                <h2 className="PerfilEnNombreCompleto">
                   {datosEntrenador.nombre_Completo}
                 </h2>
-                <p className="rol-entrenador">Entrenador Personal</p>
-                <p className="edad-entrenador">
+                <p className="PerfilEnRol">Entrenador Personal</p>
+                <p className="PerfilEnEdad">
                   {calcularEdad(datosEntrenador.fecha_Nacimiento)} años
                 </p>
               </div>
             </div>
 
-            {/* Datos personales */}
-            <div className="columna-datos-personales">
-              <h3 className="titulo-seccion-columna">Información Personal</h3>
-              <div className="lista-campos-personales">
+            {/* === DATOS PERSONALES === */}
+            <div className="PerfilEnColumnaDatosPersonales">
+              <h3 className="PerfilEnTituloSeccion">Información Personal</h3>
+              <div className="PerfilEnListaCamposPersonales">
                 {[
                   ["no_Documento", "Documento", FaIdCard],
                   ["fecha_Nacimiento", "Fecha de Nacimiento", FaBirthdayCake],
@@ -237,10 +239,10 @@ export default function PerfilEntrenador() {
                   ["direccion", "Dirección", FaMapMarkerAlt],
                   ["telefono", "Teléfono", FaPhone],
                 ].map(([campo, etiqueta, Icono]) => (
-                  <div key={campo} className="campo-dato-personal">
-                    <div className="etiqueta-con-icono">
-                      <Icono className="icono-campo-columna" />
-                      <span className="etiqueta-campo-columna">{etiqueta}</span>
+                  <div key={campo} className="PerfilEnCampoDatoPersonal">
+                    <div className="PerfilEnEtiquetaIcono">
+                      <Icono className="PerfilEnIconoCampo" />
+                      <span className="PerfilEnEtiquetaCampo">{etiqueta}</span>
                     </div>
                     {modoEdicion &&
                     ["direccion", "telefono"].includes(campo) ? (
@@ -250,14 +252,14 @@ export default function PerfilEntrenador() {
                         onChange={(e) =>
                           manejarCambioCampo(campo, e.target.value)
                         }
-                        className="input-campo-columna"
+                        className="PerfilEnInputCampo"
                       />
                     ) : campo === "fecha_Nacimiento" ? (
-                      <span className="valor-campo-columna">
+                      <span className="PerfilEnValorCampo">
                         {formatearFecha(datosEntrenador[campo])}
                       </span>
                     ) : (
-                      <span className="valor-campo-columna">
+                      <span className="PerfilEnValorCampo">
                         {datosEntrenador[campo]}
                       </span>
                     )}
@@ -266,21 +268,19 @@ export default function PerfilEntrenador() {
               </div>
             </div>
 
-            {/* Datos profesionales */}
-            <div className="columna-datos-profesionales">
-              <h3 className="titulo-seccion-columna">
-                Información Profesional
-              </h3>
-              <div className="lista-campos-profesionales">
+            {/* === DATOS PROFESIONALES === */}
+            <div className="PerfilEnColumnaDatosProfesionales">
+              <h3 className="PerfilEnTituloSeccion">Información Profesional</h3>
+              <div className="PerfilEnListaCamposProfesionales">
                 {[
                   ["especialidad", "Especialidad", FaStar],
                   ["certificacion", "Certificaciones", FaCertificate],
                   ["experiencia", "Experiencia", FaClock],
                 ].map(([campo, etiqueta, Icono]) => (
-                  <div key={campo} className="campo-dato-profesional">
-                    <div className="etiqueta-con-icono">
-                      <Icono className="icono-campo-columna" />
-                      <span className="etiqueta-campo-columna">{etiqueta}</span>
+                  <div key={campo} className="PerfilEnCampoDatoProfesional">
+                    <div className="PerfilEnEtiquetaIcono">
+                      <Icono className="PerfilEnIconoCampo" />
+                      <span className="PerfilEnEtiquetaCampo">{etiqueta}</span>
                     </div>
                     {modoEdicion ? (
                       <textarea
@@ -288,11 +288,11 @@ export default function PerfilEntrenador() {
                         onChange={(e) =>
                           manejarCambioCampo(campo, e.target.value)
                         }
-                        className="textarea-campo-columna"
+                        className="PerfilEnTextareaCampo"
                         rows="3"
                       />
                     ) : (
-                      <p className="valor-texto-columna">
+                      <p className="PerfilEnValorTexto">
                         {datosEntrenador[campo]}
                       </p>
                     )}
@@ -303,7 +303,8 @@ export default function PerfilEntrenador() {
           </div>
         </div>
       </div>
-      </div>
     </div>
-  );
+  </div>
+);
+
 }
