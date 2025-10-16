@@ -8,4 +8,12 @@ export default defineConfig({
   server: {
     historyApiFallback: true, // 👈 Esto permite recargar rutas sin error 404 en desarrollo
   },
+  build: {
+    outDir: 'dist'
+  },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 })
