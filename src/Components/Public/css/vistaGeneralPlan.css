@@ -90,12 +90,6 @@
   transform: translateY(0);
 }
 
-/* Content Area */
-.content {
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid #dee2e6;
-}
 
 /* Data Table */
 .data-table {

@@ -53,7 +53,7 @@
 
 .sidebar_item.active {
   background-color: #dbeafe;
-  color: #1d4ed8;
+  color: #1a6f9d;
 }
 
 .sidebar_icon {
@@ -218,7 +218,7 @@
 }
 
 .tipo-entrenamiento { background-color: #1a6f9d; }
-.tipo-partido { background-color: #235eb5; }
+.tipo-partido { background-color: #1a6f9d; }
 
 .estado-activo { background-color: #1abc9c; }
 .estado-inactivo { background-color: #e74c3c; }

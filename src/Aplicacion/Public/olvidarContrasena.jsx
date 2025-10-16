@@ -23,7 +23,7 @@ export default function ForgotPassword() {
       );
       setMensaje(res.data.message);
       setTimeout(() => {
-        navigate("/restablecerContraseña/:token");
+        navigate("/restablecerContrasena/:token");
       }, 2000);
     } catch (err) {
       setMensaje(

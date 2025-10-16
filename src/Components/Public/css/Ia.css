@@ -1,216 +1,150 @@
-/* === ESTILOS GENERALES === */
-body {
-  background: #f8f9fa;
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-/* === CONTENEDOR PRINCIPAL === */
+/* === CONTENEDOR GENERAL === */
 .IAContenedor {
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
 }
 
 /* === CABECERA === */
 .IACabecera {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
 .IATitulo {
-  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
   font-weight: 700;
-  color: #0077b6;
-  margin-bottom: 10px;
+  color: #1a6f9d;
+  gap: 0.5rem;
+}
+
+.IAIconoTitulo {
+  width: 32px;
+  height: 32px;
+  color: #1a6f9d;
 }
 
 .IASubtitulo {
-  font-size: 1.1rem;
-  color: #6c757d;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.25rem;
 }
 
 /* === TARJETA === */
 .IATarjeta {
+  background: white;
   border-radius: 12px;
-  border: 1px solid #e0e0e0;
-  background: #ffffff;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1350px;
+  width: 100%;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
+.IATarjeta:hover {
+  transform: translateY(-3px);
+}
+
+/* === CUERPO === */
 .IACuerpoTarjeta {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /* === ÁREA DE TEXTO === */
-.IAEntradaTexto {
-  margin-bottom: 15px;
-}
-
 .IAAreaTexto {
   width: 100%;
-  resize: none;
+  border: 2px solid #1a6f9d;
   border-radius: 10px;
-  border: 1px solid #ced4da;
-  padding: 12px;
+  padding: 0.8rem;
   font-size: 1rem;
-  transition: all 0.3s;
+  resize: none;
+  outline: none;
+  transition: 0.3s ease;
 }
 
 .IAAreaTexto:focus {
-  border-color: #0077b6;
-  box-shadow: 0 0 8px rgba(0, 119, 182, 0.4);
-  outline: none;
+  border-color: #134f73;
 }
 
 /* === BOTÓN ENVIAR === */
 .IABotonContenedor {
-  display: grid;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .IABotonEnviar {
-  background: #0077b6;
+  background-color: #1a6f9d;
+  color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 0.7rem 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #fff;
-  transition: all 0.3s;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
 }
 
 .IABotonEnviar:hover {
-  background: #005f86;
-  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.4);
+  background-color: #155a7a;
 }
 
-/* Spinner de carga */
+.IABotonEnviar:disabled {
+  background-color: #87bcd1;
+  cursor: not-allowed;
+}
+
+.IAIconoEnviar {
+  width: 18px;
+  height: 18px;
+}
+
+/* === RESPUESTA === */
+.IARespuestaContenedor {
+  background: #f1f7fb;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.IARespuestaTexto {
+  margin-top: 0.5rem;
+  white-space: pre-wrap;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* === SPINNER === */
 .IASpinner {
-  margin-right: 8px;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid #fff;
-  border-top-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  animation: spin 0.8s linear infinite;
+  animation: girar 1s linear infinite;
 }
 
-@keyframes spin {
+@keyframes girar {
   to {
     transform: rotate(360deg);
   }
 }
 
-/* === RESPUESTA === */
-.IARespuestaContenedor {
-  background: #f9f9f9;
-  border-radius: 10px;
-  border: 1px solid #e0e0e0;
-  padding: 15px;
-  margin-top: 20px;
-  font-size: 1rem;
-  color: #212529;
-}
-
-.IARespuestaContenedor strong {
-  color: #0077b6;
-  font-weight: 600;
-}
-
-.IARespuestaTexto {
-  margin-top: 10px;
-  white-space: pre-line;
-  color: #212529;
-}
-
-/* === RESPONSIVIDAD === */
-
-/* Tablets medianas */
-@media (max-width: 992px) {
-  .IAContenedor {
-    max-width: 90%;
-    margin: 30px auto;
-    padding: 15px;
-  }
-
+/* === RESPONSIVO === */
+@media (max-width: 600px) {
   .IATitulo {
-    font-size: 2rem;
-  }
-
-  .IASubtitulo {
-    font-size: 1rem;
-  }
-
-  .IAAreaTexto {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-
-  .IABotonEnviar {
-    padding: 9px 18px;
-    font-size: 0.95rem;
-  }
-}
-
-/* Celulares grandes */
-@media (max-width: 768px) {
-  .IAContenedor {
-    max-width: 95%;
-    margin: 25px auto;
-  }
-
-  .IATitulo {
-    font-size: 1.8rem;
-  }
-
-  .IASubtitulo {
-    font-size: 0.95rem;
+    font-size: 1.6rem;
   }
 
   .IATarjeta {
-    padding: 15px;
+    padding: 1rem;
   }
 
   .IAAreaTexto {
     font-size: 0.9rem;
-  }
-
-  .IARespuestaContenedor {
-    font-size: 0.95rem;
-  }
-}
-
-/* Celulares pequeños */
-@media (max-width: 480px) {
-  .IAContenedor {
-    margin: 15px auto;
-    padding: 10px;
-  }
-
-  .IATitulo {
-    font-size: 1.5rem;
-  }
-
-  .IASubtitulo {
-    font-size: 0.9rem;
-  }
-
-  .IAAreaTexto {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
-  .IABotonEnviar {
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 9px;
-  }
-
-  .IARespuestaContenedor {
-    font-size: 0.9rem;
-    padding: 12px;
   }
 }

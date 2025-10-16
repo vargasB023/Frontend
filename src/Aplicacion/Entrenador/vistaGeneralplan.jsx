@@ -1,120 +1,102 @@
 import React, { useState } from "react";
 import "../../Components/Public/css/vistaGeneralPlan.css";
-import CrearMicrociclo from "./microciclo";
-import CrearPlanEntrenamiento from "./Plan";
-import CrearEjercicio from "./ejercicio";
-import CrearSesion from "./sesion";
+
+// 🔹 Imports de componentes
+import FormularioMicrociclo from "./microciclo";
+import ListarMicrociclos from "./ListarMicrociclos";
+
+import FormularioPlan from "./Plan";
+import ListarPlan from "./ListarPlan"; 
+
+// Ejercicios
+import ListadoEjercicio from "./ListadoEjercicio";
+import FormularioEjercicio from "./ejercicio";
+
+// Sesiones
+import FormularioSesion from "./sesion";
+import ListarSesiones from "./ListarSesiones";
 
 const VistaGeneralPlan = () => {
   const [activeTab, setActiveTab] = useState("ejercicios");
-  const [mostrarFormulario, setMostrarFormulario] = useState(null);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-    setMostrarFormulario(null); // 👈 Al cambiar de pestaña, cierra cualquier formulario abierto
+  // 🔹 Configuración de pestañas principales
+  const tabs = [
+    { id: "ejercicios", label: "Ejercicios" },
+    { id: "sesiones", label: "Sesiones" },
+    { id: "microciclos", label: "Microciclos" },
+    { id: "plan", label: "Planes de Entrenamiento" },
+  ];
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    setMostrarFormulario(false); // 🔸 Cierra formulario al cambiar de pestaña
   };
 
-  const handleCreateClick = () => {
-    switch (activeTab) {
-      case "ejercicios":
-        setMostrarFormulario("ejercicio");
-        break;
-      case "sesiones":
-        setMostrarFormulario("sesion");
-        break;
-      case "microciclos":
-        setMostrarFormulario("microciclo");
-        break;
-      case "plan":
-        setMostrarFormulario("plan");
-        break;
-      default:
-        setMostrarFormulario(null);
-        break;
-    }
-  };
+  const handleToggleFormulario = () => setMostrarFormulario((prev) => !prev);
 
-  const handleCloseFormulario = () => setMostrarFormulario(null);
-
-  const getCreateButtonText = () => {
-    switch (activeTab) {
-      case "ejercicios":
-        return "Crear Ejercicio";
-      case "sesiones":
-        return "Crear Sesión";
-      case "microciclos":
-        return "Crear Microciclo";
-      case "plan":
-        return "Crear Plan";
-      default:
-        return "Crear";
-    }
-  };
+  const handleCloseFormulario = () => setMostrarFormulario(false);
 
   if (loading) return <div className="loading">Cargando datos...</div>;
 
   return (
     <div className="vista-general-container">
-      {/* 🔹 Barra de navegación siempre visible */}
+      {/* 🔹 Encabezado con tabs y botón */}
       <div className="header">
         <nav className="tab-navigation">
-          <button
-            className={`tab-button ${activeTab === "ejercicios" ? "active" : ""}`}
-            onClick={() => handleTabClick("ejercicios")}
-          >
-            Ejercicios
-          </button>
-          <button
-            className={`tab-button ${activeTab === "sesiones" ? "active" : ""}`}
-            onClick={() => handleTabClick("sesiones")}
-          >
-            Sesiones
-          </button>
-          <button
-            className={`tab-button ${activeTab === "microciclos" ? "active" : ""}`}
-            onClick={() => handleTabClick("microciclos")}
-          >
-            Microciclos
-          </button>
-          <button
-            className={`tab-button ${activeTab === "plan" ? "active" : ""}`}
-            onClick={() => handleTabClick("plan")}
-          >
-            Planes de Entrenamiento
-          </button>
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
+              onClick={() => handleTabClick(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
         </nav>
 
-        {/* 🔹 Botón de crear (también siempre visible) */}
-        <button className="create-button" onClick={handleCreateClick}>
-          {getCreateButtonText()}
+        <button className="create-button" onClick={handleToggleFormulario}>
+          {mostrarFormulario ? "Ver Listado" : "Crear"}{" "}
+          {activeTab === "plan"
+            ? "Plan"
+            : activeTab.slice(0, -1).charAt(0).toUpperCase() +
+              activeTab.slice(1, -1)}{" "}
         </button>
       </div>
 
-      {/* 🔹 Contenido principal debajo del encabezado */}
-      <div className="content">
+      {/* 🔹 Contenido dinámico */}
+      <div className="contentt">
+        {/* ======================= FORMULARIOS ======================= */}
         {mostrarFormulario ? (
           <div className="form-container">
-            {mostrarFormulario === "ejercicio" && (
-              <CrearEjercicio onClose={handleCloseFormulario} />
+            {activeTab === "ejercicios" && (
+              <FormularioEjercicio onClose={handleCloseFormulario} />
             )}
-            {mostrarFormulario === "sesion" && (
-              <CrearSesion onClose={handleCloseFormulario} />
+
+            {activeTab === "sesiones" && (
+              <FormularioSesion onClose={handleCloseFormulario} />
             )}
-            {mostrarFormulario === "microciclo" && (
-              <CrearMicrociclo onClose={handleCloseFormulario} />
+
+            {activeTab === "microciclos" && (
+              <FormularioMicrociclo onClose={handleCloseFormulario} />
             )}
-            {mostrarFormulario === "plan" && (
-              <CrearPlanEntrenamiento onClose={handleCloseFormulario} />
+
+            {activeTab === "plan" && (
+              <FormularioPlan onClose={handleCloseFormulario} />
             )}
           </div>
         ) : (
-          <h2 style={{ textAlign: "center", marginTop: "40px", color: "#333" }}>
-            {activeTab === "ejercicios" && "Gestión de Ejercicios"}
-            {activeTab === "sesiones" && "Gestión de Sesiones"}
-            {activeTab === "microciclos" && "Gestión de Microciclos"}
-            {activeTab === "plan" && "Gestión de Planes de Entrenamiento"}
-          </h2>
+
+          <div className="contenido-listado">
+            {activeTab === "ejercicios" && <ListadoEjercicio />}
+
+            {activeTab === "sesiones" && <ListarSesiones />}
+
+            {activeTab === "microciclos" && <ListarMicrociclos />}
+
+            {activeTab === "plan" && (<ListarPlan/> )}
+          </div>
         )}
       </div>
     </div>

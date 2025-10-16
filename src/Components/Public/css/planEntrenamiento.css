@@ -9,15 +9,28 @@
 /* Banner principal */
 .plan-banner {
   color: #1a6f9d;
-   background: #f8f9fc;
   padding: 18px 25px;
   border-radius: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   flex-wrap: wrap;
+}
+
+.texto-seleccion-equipo {
+    font-size: 1rem;
+    color: #235eb5; /* azul principal */
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+
+.texto-reporte-activo {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #1a6f9d;
+    font-weight: 500;
 }
 
 .plan-banner h1 {

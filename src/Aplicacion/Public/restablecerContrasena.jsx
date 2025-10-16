@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../Components/Public/css/restablecerContrasena.css";
+import Iniciopagina from "../../Components/Public/inicioHome";
+import Footer from "../../Components/Public/footer";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
@@ -41,7 +43,9 @@ export default function ResetPassword() {
   };
 
   return (
+    <div><Iniciopagina/>
     <div className="res_contenedor">
+      
       <div className="res_card">
         <div className="res_logo">⧉</div>
         <h2 className="res_titulo">Restablece tu contraseña</h2>
@@ -98,6 +102,8 @@ export default function ResetPassword() {
           <a href="/"> Iniciar sesión</a>
         </div>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

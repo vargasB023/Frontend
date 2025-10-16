@@ -1,40 +1,41 @@
-import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { FaBell, FaUser, FaSignOutAlt, FaCog } from "react-icons/fa"
-import "./css/encabezado.css"
-import gadderNuevo from "./img/GadderNuevo.png";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaUser, FaSignOutAlt } from "react-icons/fa";
+import "./css/encabezado.css";
+import gadderNuevo from "./img/gadderBlanco.png";
 
 export default function EncabezadoSimple({ setSeccion }) {
-  const [menuUsuarioAbierto, setMenuUsuarioAbierto] = useState(false)
-  const navigate = useNavigate()
+  const [menuUsuarioAbierto, setMenuUsuarioAbierto] = useState(false);
+  const navigate = useNavigate();
 
-  const entrenadorGuardado = localStorage.getItem("entrenador")
-  const entrenador = entrenadorGuardado ? JSON.parse(entrenadorGuardado) : null
+  const entrenadorGuardado = localStorage.getItem("entrenador");
+  const entrenador = entrenadorGuardado ? JSON.parse(entrenadorGuardado) : null;
 
   const alternarMenuUsuario = () => {
-    setMenuUsuarioAbierto(!menuUsuarioAbierto)
-  }
+    setMenuUsuarioAbierto(!menuUsuarioAbierto);
+  };
 
   const cerrarMenu = () => {
-    setMenuUsuarioAbierto(false)
-  }
+    setMenuUsuarioAbierto(false);
+  };
 
   const cerrarSesion = () => {
-    // Borra todos los datos del localStorage
-    localStorage.clear("entrenador")
-    setMenuUsuarioAbierto(false)
-    navigate("/") // Redirige al login o página principal
-  }
+    localStorage.clear("entrenador");
+    setMenuUsuarioAbierto(false);
+    navigate("/");
+  };
 
   return (
     <header className="encabezado-simple">
       <div className="contenedor-encabezado-simple">
+        {/* Logo */}
         <div className="contenedor-logo-simple">
           <Link to="/dashEntrenador" className="enlace-logo-simple">
-            <img
-               src={gadderNuevo} alt="GADDER Logo" className="img-logo" />
+            <img src={gadderNuevo} alt="GADDER Logo" className="img-logo" />
           </Link>
         </div>
+
+        {/* Usuario */}
         <div className="acciones-encabezado-simple">
           <div className="contenedor-usuario-simple">
             <button
@@ -53,6 +54,7 @@ export default function EncabezadoSimple({ setSeccion }) {
               </div>
             </button>
 
+            {/* Menú desplegable */}
             {menuUsuarioAbierto && (
               <>
                 <div className="overlay-menu-simple" onClick={cerrarMenu}></div>
@@ -65,25 +67,26 @@ export default function EncabezadoSimple({ setSeccion }) {
                       <span className="nombre-menu-simple">
                         {entrenador?.nombre_Completo}
                       </span>
-                      <span className="email-menu-simple">{entrenador?.email}</span>
+                      <span className="email-menu-simple">
+                        {entrenador?.email}
+                      </span>
                     </div>
                   </div>
 
-                  <hr className="separador-menu-usuario-simple" />
-
                   <div
                     className="item-menu-usuario-simple"
-                    onClick={() => setSeccion("entrenador")}
+                    onClick={() => {
+                      setSeccion("entrenador");
+                      cerrarMenu();
+                    }}
                   >
                     <FaUser className="icono-menu-usuario-simple" />
                     Mi Perfil
                   </div>
 
-                  <hr className="separador-menu-usuario-simple" />
-
                   <button
                     className="item-menu-usuario-simple boton-cerrar-sesion-simple"
-                    onClick={cerrarSesion} 
+                    onClick={cerrarSesion}
                   >
                     <FaSignOutAlt className="icono-menu-usuario-simple" />
                     Cerrar Sesión
@@ -92,8 +95,8 @@ export default function EncabezadoSimple({ setSeccion }) {
               </>
             )}
           </div>
-        </div> 
+        </div>
       </div>
     </header>
-  )
+  );
 }

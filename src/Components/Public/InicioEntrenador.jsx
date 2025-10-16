@@ -23,8 +23,8 @@ const InicioEntrenador = ({ ID_Entrenador }) => {
         setCargando(true);
         setError(null);
 
-        const API_CRONOGRAMAS = "http://localhost:3000/api/cronograma";
-        const API_EQUIPOS = "http://localhost:3000/api/equipo";
+        const API_CRONOGRAMAS = "https://backend-5gwv.onrender.com/api/cronograma";
+        const API_EQUIPOS = "https://backend-5gwv.onrender.com/api/equipo";
 
         // 🔹 Petición de eventos
         const respCrono = await axios.get(`${API_CRONOGRAMAS}/entrenador/${ID_Entrenador}`);

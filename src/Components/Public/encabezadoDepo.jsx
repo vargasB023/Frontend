@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBell, FaUser, FaSignOutAlt, FaCog } from "react-icons/fa";
 import "./css/encabezado_Depor.css";
-import gadderNuevo from "./img/GadderNuevo.png";
+import gadderNuevo from "./img/gadderBlanco.png";
 
 export default function Encabezado_Deportista({ setSeccion }) {
   const [menuUsuarioAbierto, setMenuUsuarioAbierto] = useState(false);

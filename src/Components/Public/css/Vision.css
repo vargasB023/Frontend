@@ -1,163 +1,200 @@
-/* === Vision / ExerciseChecker Styles === */
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  background: #f8fbff;
-  border-radius: 16px;
+.vision_contenedor {
+  background-color: #ffffff;
+  min-height: 100vh;
   padding: 2rem;
-  box-shadow: 0 0 20px rgba(0, 60, 120, 0.1);
-  font-family: "Poppins", sans-serif;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.text-primary {
-  color: #0066cc !important;
+.vision_titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #235eb5;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-.border-primary {
-  border-color: #007bff !important;
+.vision_subtitulo {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
 }
 
-.bg-primary {
-  background-color: #007bff !important;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  font-weight: 600;
-  border-radius: 10px;
-}
-
-.btn-outline-primary {
-  border-radius: 10px;
-  font-weight: 600;
-}
-
-video {
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-/* --- Layout principal --- */
-.row {
+.vision_contenido {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-}
-
-.col-lg-8 {
-  flex: 2;
-}
-
-.col-lg-4 {
-  flex: 1;
-}
-
-/* --- Cámara --- */
-.border-primary.rounded {
-  background: #eaf3ff;
-  border-radius: 16px;
-  overflow: hidden;
-  height: 520px;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto; /* margen superior e inferior */
+  padding: 0 1.5rem; /* margen lateral */
 }
 
-video,
-canvas {
+.vision_video_contenedor {
+  flex: 1 1 600px;
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 600px; /* altura aumentada */
+}
+
+.vision_video_box {
+  position: relative;
+  width: 100%;
+  height: 100%; /* ocupa toda la altura disponible */
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid #235eb5;
+}
+
+.vision_video,
+.vision_canvas {
   width: 100%;
   height: 100%;
-  border-radius: 16px;
+  border-radius: 14px;
+  object-fit: cover; /* mantiene proporción del video */
 }
 
-canvas {
+.vision_canvas {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* --- Feedback y datos --- */
-.mt-3.text-center {
-  background: #e8f1ff;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-top: 1rem !important;
+.vision_panel {
+  flex: 0 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 1rem; /* separación superior */
 }
 
-.mt-3.text-center p {
-  margin: 0.4rem 0;
-  font-size: 1rem;
+.vision_card {
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 100%;
 }
 
-.fs-5.fw-semibold.text-primary {
+.vision_card h3 {
   font-size: 1.2rem;
+  font-weight: 700;
+  color: #235eb5;
+  margin-bottom: 1rem;
 }
 
-/* --- Configuración lateral --- */
-.card {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.card-header {
+.vision_card label {
+  display: block;
   font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.vision_card select,
+.vision_card input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1.5px solid #d6d6d6;
+  border-radius: 14px;
+  outline: none;
+  transition: border 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.vision_card select:focus,
+.vision_card input:focus {
+  border-color: #235eb5;
+}
+
+.vision_card.guia ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vision_card.guia li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.vision_card.guia li:last-child {
+  border-bottom: none;
+}
+
+.vision_info {
   text-align: center;
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.vision_feedback {
+  font-weight: 600;
+  color: #235eb5;
   font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-.card-body {
-  background-color: #ffffff;
+.vision_botones {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.form-label {
-  font-weight: 500;
-  color: #004080;
-}
-
-.form-select,
-.form-control {
-  border-radius: 10px;
-  border: 1px solid #b0c8e8;
-}
-
-.form-select:focus,
-.form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
-}
-
-/* --- Lista de guía --- */
-.card.border-secondary {
-  border: 1px solid #b0c8e8 !important;
-}
-
-.card-header.bg-secondary {
-  background-color: #007bff !important;
-}
-
-.list-group-item {
-  background: #f9fcff;
+.vision_boton {
+  padding: 0.6rem 1.4rem;
   border: none;
-  padding: 0.75rem 1rem;
-  font-weight: 500;
-  color: #004080;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.list-group-item:not(:last-child) {
-  border-bottom: 1px solid #d6e8ff;
+.vision_boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-/* --- Responsive --- */
+.vision_boton.iniciar {
+  background-color: #235eb5;
+  color: white;
+}
+
+.vision_boton.detener {
+  background-color: white;
+  color: #235eb5;
+  border: 2px solid #235eb5;
+}
+
+.vision_boton:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
-  .row {
+  .vision_contenido {
     flex-direction: column;
+    align-items: center;
   }
 
-  .border-primary.rounded {
-    height: 400px;
+  .vision_panel {
+    width: 100%;
+  }
+
+  .vision_video_contenedor {
+    height: 400px; /* altura reducida en móviles */
   }
 }

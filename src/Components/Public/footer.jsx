@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa"
 import "./css/footer.css"
-import logo from "./img/logo.png"
+import logo from "./img/logoNew.png"
 
 export default function Footer() {
   const anioActual = new Date().getFullYear()

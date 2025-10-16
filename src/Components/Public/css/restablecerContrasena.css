@@ -32,7 +32,7 @@
 
 .res_logo {
   font-size: 2.2rem;
-  color: #2563eb;
+  color: #1a6f9d;
   margin-bottom: 1rem;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .res_boton {
-  background: #2563eb;
+  background: #1a6f9d;
   color: #fff;
   border: none;
   padding: 12px;
@@ -93,7 +93,7 @@
 }
 
 .res_boton:hover {
-  background: #1e40af;
+  background: #185a90;
   transform: translateY(-1px);
 }
 

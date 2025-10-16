@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
 import './css/inicioHome.css'
-import gadderNuevo from "./img/GadderNuevo.png";
+import gadderNuevo from "./img/gadderBlanco.png";
 
 export default function Iniciopagina() {
   const [menuOpen, setMenuOpen] = useState(false);

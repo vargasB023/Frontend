@@ -165,7 +165,7 @@ export default function Login({setUser}) {
             </button>
 
             <div className="olvide-contrasena">
-              <a href="/olvidarContraseña/:token">¿Olvidaste tu contraseña?</a>
+              <a href="/olvidarContrasena/:token">¿Olvidaste tu contraseña?</a>
             </div>
           </form>
         </div>

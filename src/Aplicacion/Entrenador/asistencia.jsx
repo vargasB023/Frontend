@@ -13,14 +13,13 @@ const Asistencia = () => {
   const [eventoAbierto, setEventoAbierto] = useState(null);
   const [eventosCalificados, setEventosCalificados] = useState([]);
 
-  // 🔹 Manejo de persistencia con localStorage
+  // 🔹 Persistencia diaria con localStorage
   useEffect(() => {
     const hoy = new Date().toLocaleDateString("sv-SE", { timeZone: "America/Bogota" });
     const eventosGuardados = JSON.parse(localStorage.getItem("eventosCalificados")) || [];
     const ultimaFecha = localStorage.getItem("fechaUltimoGuardado");
 
     if (ultimaFecha !== hoy) {
-      // Limpiar si cambió el día
       localStorage.setItem("eventosCalificados", JSON.stringify([]));
       localStorage.setItem("fechaUltimoGuardado", hoy);
       setEventosCalificados([]);
@@ -29,7 +28,7 @@ const Asistencia = () => {
     }
   }, []);
 
-  // 🔹 Cargar equipos
+  // 🔹 Cargar equipos del entrenador
   useEffect(() => {
     if (entrenador) {
       axios
@@ -39,7 +38,7 @@ const Asistencia = () => {
     }
   }, []);
 
-  // 🔹 Cargar eventos de hoy
+  // 🔹 Cargar eventos del día actual
   useEffect(() => {
     const hoy = new Date().toLocaleDateString("sv-SE", { timeZone: "America/Bogota" });
 
@@ -54,24 +53,31 @@ const Asistencia = () => {
       .catch((err) => console.error("Error cargando cronograma:", err));
   }, []);
 
-  // 🔹 Inicializar asistencias por evento
+  // 🔹 Inicializar asistencias solo con deportistas ACTIVOS
   useEffect(() => {
     if (eventosHoy.length > 0 && equipos.length > 0) {
       const asistenciasIniciales = {};
+
       eventosHoy.forEach((evento) => {
         const equipoEncontrado = equipos.find((eq) => eq.ID_Equipo === evento.ID_Equipo);
+
         if (equipoEncontrado) {
-          asistenciasIniciales[evento.ID_Cronograma] = (equipoEncontrado.deportista || []).map(
-            (d) => ({
-              ID_Deportista: d.ID_Deportista,
-              estado: null,
-              observaciones: "",
-              nombre_Completo: d.nombre_Completo,
-              posicion: d.posicion,
-            })
+          // 🔸 Filtrar solo deportistas activos dentro del equipo
+          const deportistasActivos = (equipoEncontrado.deportista || []).filter(
+            (d) => d.Rel_Deportista_Equipo?.estado === "ACTIVO"
           );
+
+          // 🔸 Crear estructura inicial de asistencia
+          asistenciasIniciales[evento.ID_Cronograma] = deportistasActivos.map((d) => ({
+            ID_Deportista: d.ID_Deportista,
+            estado: null,
+            observaciones: "",
+            nombre_Completo: d.nombre_Completo,
+            posicion: d.posicion,
+          }));
         }
       });
+
       setAsistenciasPorEvento(asistenciasIniciales);
     }
   }, [eventosHoy, equipos]);
@@ -86,7 +92,7 @@ const Asistencia = () => {
     }));
   };
 
-  // 👉 Guardar asistencia
+  // 👉 Guardar asistencia en backend
   const guardarAsistencia = (evento) => {
     const asistencias = asistenciasPorEvento[evento.ID_Cronograma] || [];
     axios
@@ -97,15 +103,16 @@ const Asistencia = () => {
       .then(() => {
         alert(`✅ Asistencia del evento ${evento.ID_Cronograma} guardada`);
 
-        // 🔹 Actualizar eventos calificados y localStorage
         setEventosCalificados((prev) => {
           const nuevos = [...prev, evento.ID_Cronograma];
           localStorage.setItem("eventosCalificados", JSON.stringify(nuevos));
-          localStorage.setItem("fechaUltimoGuardado", new Date().toLocaleDateString("sv-SE", { timeZone: "America/Bogota" }));
+          localStorage.setItem(
+            "fechaUltimoGuardado",
+            new Date().toLocaleDateString("sv-SE", { timeZone: "America/Bogota" })
+          );
           return nuevos;
         });
 
-        // 🔹 Cerrar card
         if (eventoAbierto === evento.ID_Cronograma) setEventoAbierto(null);
       })
       .catch((err) => console.error("Error guardando asistencia:", err));
@@ -170,10 +177,10 @@ const Asistencia = () => {
                   </div>
                 </div>
 
-                {/* Botón de calificar */}
+                {/* Botón para abrir/cerrar asistencia */}
                 <button
                   className={`boton-calificar ${yaCalificado ? "calificado" : ""}`}
-                  disabled={yaCalificado} // 🔹 Deshabilitado si ya se calificó
+                  disabled={yaCalificado}
                   onClick={() =>
                     setEventoAbierto(abierto ? null : evento.ID_Cronograma)
                   }
@@ -186,7 +193,7 @@ const Asistencia = () => {
                 </button>
               </div>
 
-              {/* Card de asistencia solo si está abierto y no ha sido calificado */}
+              {/* Lista de asistencia solo si el evento está abierto */}
               {abierto && !yaCalificado && (
                 <div className="lista-asistencia">
                   <h3>Asistencia</h3>
@@ -250,7 +257,7 @@ const Asistencia = () => {
                       </div>
                     ))
                   ) : (
-                    <p>No hay deportistas en este evento</p>
+                    <p>No hay deportistas activos en este evento</p>
                   )}
 
                   <button

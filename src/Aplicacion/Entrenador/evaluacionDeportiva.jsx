@@ -48,9 +48,19 @@ const Evaluacion_Deportiva = () => {
   };
 
   const obtenerDeportistas = async (ID_Equipo = 0) => {
-    const equipoSeleccionado = equipos.find(equipo => equipo.ID_Equipo == ID_Equipo);
-    setDeportistas(equipoSeleccionado ? equipoSeleccionado.deportista : []);
-  };
+  const equipoSeleccionado = equipos.find(equipo => equipo.ID_Equipo == ID_Equipo);
+
+  if (equipoSeleccionado && equipoSeleccionado.deportista) {
+    // Filtrar solo los deportistas activos dentro del equipo
+    const deportistasActivos = equipoSeleccionado.deportista.filter(
+      (dep) => dep.Rel_Deportista_Equipo?.estado === "ACTIVO"
+    );
+    setDeportistas(deportistasActivos);
+  } else {
+    setDeportistas([]);
+  }
+};
+
 
   const [formulario, setFormulario] = useState({
     ID_Equipo: "",

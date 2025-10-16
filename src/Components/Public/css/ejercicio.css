@@ -103,12 +103,12 @@
 }
 
 .ejer_boton_cancelar {
-  background: #6b7280;
+  background: #f44e4e;
   color: #ffffff;
 }
 
 .ejer_boton_cancelar:hover {
-  background: #4b5563;
+  background: #ee6745;
 }
 
 /* Navegación de tabs/páginas */
@@ -324,12 +324,12 @@
 
 /* Botón Cancelar */
 .modal-buttons button:last-child {
-  background-color: #6c757d;
+  background-color: #f05d5d;
   color: #ffffff;
 }
 
 .modal-buttons button:last-child:hover {
-  background-color: #495057;
+  background-color: #f36757;
   transform: translateY(-2px);
 }
 

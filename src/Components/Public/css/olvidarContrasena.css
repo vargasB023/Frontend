@@ -57,7 +57,7 @@
   padding: 12px;
   border-radius: 8px;
   border: none;
-  background-color: #2563eb;
+  background-color: #1a6f9d;
   color: #fff;
   font-weight: 600;
   font-size: 15px;
@@ -66,7 +66,7 @@
 }
 
 .forgot-button:hover {
-  background-color: #1e40af;
+  background-color: #185a90;
 }
 
 .forgot-message {

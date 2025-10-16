@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Brain, Send, Loader2 } from "lucide-react";
 import "../../Components/Public/css/Ia.css";
 
 function Ia() {
@@ -27,9 +28,12 @@ function Ia() {
   return (
     <div className="IAContenedor">
       <div className="IACabecera">
-        <h1 className="IATitulo">🐎 Nutribot</h1>
+        <h1 className="IATitulo">
+          <Brain className="IAIconoTitulo" />
+          EntrenIA
+        </h1>
         <p className="IASubtitulo">
-          Tu asistente con todo el poder de IA para tus necesidades nutritivas
+          Consultas técnicas e informativas sobre los deportistas y entrenadores
         </p>
       </div>
 
@@ -41,7 +45,7 @@ function Ia() {
               className="IAAreaTexto"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Escribe tu mensaje..."
+              placeholder="Escribe tu mensaje o consulta técnica..."
             />
           </div>
 
@@ -53,23 +57,21 @@ function Ia() {
             >
               {loading ? (
                 <>
-                  <span
-                    className="IASpinner"
-                    role="status"
-                  ></span>
+                  <Loader2 className="IASpinner" />
                   Consultando...
                 </>
               ) : (
-                "Enviar"
+                <>
+                  <Send className="IAIconoEnviar" />
+                  Enviar
+                </>
               )}
             </button>
           </div>
 
           <div className="IARespuestaContenedor">
             <strong>Respuesta:</strong>
-            <div className="IARespuestaTexto">
-              {response}
-            </div>
+            <div className="IARespuestaTexto">{response}</div>
           </div>
         </div>
       </div>
