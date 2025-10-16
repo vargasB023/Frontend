@@ -1,0 +1,140 @@
+.evaTec_formulario {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 1550px;
+    margin: 15px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(26, 111, 157, 0.1);
+    border: 1px solid rgba(26, 111, 157, 0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.evaTec_titulo {
+    color: #1a6f9d;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1a6f9d;
+    grid-column: 1 / -1;
+}
+
+.evaTec_etiqueta {
+    display: block;
+    color: #2c3e50;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.evaTec_input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #ffffff;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.evaTec_input:focus {
+    outline: none;
+    border-color: #1a6f9d;
+    box-shadow: 0 0 0 2px rgba(26, 111, 157, 0.1);
+}
+
+.evaTec_mensaje {
+    background: #e8f4f8;
+    color: #1a6f9d;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 8px 0;
+    font-weight: 500;
+    border-left: 3px solid #1a6f9d;
+    grid-column: 1 / -1;
+}
+
+.evaTec_subtitulo {
+    color: rgb(10, 45, 90);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px 0 8px 0;
+    padding: 8px 12px;
+    background: #cae8f1;
+    border-radius: 4px;
+    text-align: center;
+    border-left: 3px solid #1a6f9d;
+    grid-column: 1 / -1;
+}
+
+.evaTec_subtitulo:first-of-type {
+    margin-top: 8px;
+}
+
+.evaTec_formulario>.evaTec_etiqueta:first-of-type,
+.evaTec_formulario>.evaTec_input:first-of-type {
+    grid-column: 1 / -1;
+}
+
+.evaTec_formulario>.evaTec_input:first-of-type {
+    border: 1px solid #1a6f9d;
+    background: #f8fbfd;
+}
+
+.evaTec_boton {
+    background: #1a6f9d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 250px;
+    margin-top: 12px;
+}
+
+.evaTec_boton:hover {
+    background: #155a7f;
+}
+
+.evaTec_boton:active {
+    background: #124a6b;
+}
+
+@media (max-width: 600px) {
+    .evaTec_formulario {
+        grid-template-columns: 1fr;
+        margin: 10px;
+        padding: 16px;
+    }
+    .evaTec_titulo {
+        font-size: 18px;
+    }
+    .evaTec_subtitulo {
+        font-size: 13px;
+        margin: 12px 0 6px 0;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .evaTec_formulario {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 901px) {
+    .evaTec_formulario {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

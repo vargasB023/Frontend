@@ -1,0 +1,310 @@
+/* === CONTENEDOR PRINCIPAL === */
+.micro_contenedor_principal {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to right, #f9fbfd, #f1f5f9);
+  min-height: 100vh;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* === TITULOS === */
+.micro_titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a6f9d;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 3px solid #1a6f9d;
+}
+
+.micro_subtitulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0f4160;
+  margin-bottom: 0.8rem;
+}
+
+/* === FORMULARIO === */
+.micro_formulario {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.micro_fila {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.micro_formulario input,
+.micro_formulario textarea,
+.micro_formulario select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  background: #fff;
+  transition: all 0.25s;
+}
+
+.micro_formulario input:focus,
+.micro_formulario textarea:focus,
+.micro_formulario select:focus {
+  outline: none;
+  border-color: #1a6f9d;
+  box-shadow: 0 0 0 3px rgba(26, 111, 157, 0.2);
+}
+
+.micro_formulario_asignar {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.micro_formulario_asignar button {
+  background: #198951;
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+  transition: all 0.25s ease;
+}
+.micro_formulario_asignar button:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.4);
+}
+
+/* === BOTONES DEL FORMULARIO === */
+.micro_botones_formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.micro_botones_formulario button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.micro_botones_formulario button[type="submit"] {
+  background: linear-gradient(135deg, #1a6f9d, #155e82);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(26, 111, 157, 0.35);
+}
+.micro_botones_formulario button[type="submit"]:hover {
+  background: linear-gradient(135deg, #155e82, #0f4160);
+  transform: translateY(-2px);
+}
+
+.micro_botones_formulario button[type="button"] {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+}
+.micro_botones_formulario button[type="button"]:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+/* === LISTADO DE MICROCICLOS === */
+.micro_listado {
+  border-radius: 14px;
+  padding: 20px;
+
+}
+
+/* === TARJETAS DE MICROCICLOS === */
+.micro_card {
+  border: 1px solid #d1d5db;
+  border-radius: 15px;
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.micro_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.micro_card h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #1a6f9d;
+}
+
+.micro_card p {
+  font-size: 0.95rem;
+  color: #374151;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* === SECCIONES DE SESIONES === */
+.micro_card h5 {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a436b;
+}
+
+.lista_sesiones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.sesion_item {
+  background: #f0f9ff;
+  border-left: 4px solid #1a6f9d;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  font-size: 0.9rem;
+  transition: background 0.25s ease;
+}
+
+.sesion_item:hover {
+  background: #e0f2fe;
+}
+
+.sesion_item strong {
+  font-size: 1rem;
+  color: #0f4160;
+}
+
+.sesion_item p {
+  margin: 0;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* === BOTONES DE CADA MICROCICLO === */
+.micro_botones {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.micro_botones button {
+  background: #f3f4f6;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.micro_botones button:first-of-type:hover {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.micro_botones button:last-of-type:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* === INTENSIDAD === */
+.micro_intensidad {
+  margin-top: 6px;
+}
+
+.micro_intensidad_label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.micro_barra {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Relleno general (transición animada) */
+.micro_barra_relleno {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+/* Colores según intensidad */
+.micro_barra_relleno.alta {
+  background: linear-gradient(90deg, #dc2626, #f87171);
+}
+.micro_barra_relleno.media {
+  background: linear-gradient(90deg, #facc15, #fbbf24);
+}
+.micro_barra_relleno.baja {
+  background: linear-gradient(90deg, #16a34a, #4ade80);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .micro_fila {
+    grid-template-columns: 1fr;
+  }
+  .micro_formulario_asignar {
+    grid-template-columns: 1fr;
+  }
+  .micro_botones_formulario {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .micro_card {
+    padding: 15px;
+  }
+  .sesion_item {
+    flex-direction: column;
+  }
+}

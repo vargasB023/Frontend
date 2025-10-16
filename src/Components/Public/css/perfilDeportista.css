@@ -1,0 +1,177 @@
+
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+.horizontal {
+  display: flex;
+  justify-content: center;
+ 
+}
+
+.contenedor-perfil-columnas {
+  width: 100%;
+  max-width: 1550px;
+}
+
+.tarjeta-perfil-columnas {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.encabezado-acciones-perfil {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.titulo-pagina-perfil {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+}
+
+.botones-accion-perfil button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+
+.boton-editar-columnas,
+.boton-guardar-columnas {
+  background: #1a6f9d;
+  color: #fff;
+}
+.boton-editar-columnas:hover,
+.boton-guardar-columnas:hover {
+  background: #185a90;
+}
+.boton-cancelar-columnas {
+  background: #e5e7eb;
+}
+.boton-cancelar-columnas:hover {
+  background: #d1d5db;
+}
+
+.icono-boton-columnas { font-size: 1rem; }
+
+/* ===== Contenido ===== */
+.contenido-columnas-perfil {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 2rem;
+}
+
+/* ---- Columnas ---- */
+.columna-foto-nombre,
+.columna-datos-personales,
+.columna-datos-profesionales {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.columna-foto-nombre { align-items: center; }
+
+/* ---- Foto ---- */
+.seccion-foto-perfil { position: relative; }
+
+.contenedor-foto-limpia {
+  position: relative;
+  width: 180px;
+  aspect-ratio: 1/1;
+}
+.imagen-perfil-limpia,
+.placeholder-foto-limpia {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f3f4f6;
+  display: flex; align-items: center; justify-content: center;
+}
+.icono-usuario-grande { font-size: 4rem; color: #9ca3af; }
+
+.boton-camara-limpia {
+  position: absolute; bottom: 0.4rem; right: 0.4rem;
+  background: #1a6f9d; color: #fff;
+  width: 2.5rem; height: 2.5rem;
+  border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background-color .2s;
+}
+.boton-camara-limpia:hover { background: #185a90; }
+
+.input-archivo-oculto { display: none; }
+
+.info-nombre-perfil h2 {
+  font-size: 1.35rem;
+  text-align: center;
+}
+.info-nombre-perfil p { text-align: center; color: #6b7280; }
+
+/* ---- Listas y campos ---- */
+.titulo-seccion-columna {
+  font-size: 1.1rem; font-weight: 600;
+  border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem;
+}
+
+.lista-campos-personales,
+.lista-campos-profesionales { display: flex; flex-direction: column; gap: .75rem; }
+
+.campo-dato-personal,
+.campo-dato-profesional { 
+  display: flex; 
+  flex-direction: column; }
+
+.etiqueta-con-icono {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: #1f2937;
+}
+.icono-campo-columna { font-size: 1rem; }
+.etiqueta-campo-columna { font-weight: 500; }
+
+.valor-campo-columna,
+.valor-texto-columna { margin-left: 1.5rem; color: #374151; }
+
+.input-campo-columna {
+  margin-left: 1.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.35rem;
+  font-size: 0.95rem;
+}
+
+/* ========= BREAKPOINTS ========= */
+@media (max-width: 992px) {
+  .contenido-columnas-perfil { grid-template-columns: 1fr 1fr; }
+  .columna-foto-nombre { grid-column: span 2; flex-direction: row; gap: 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .contenido-columnas-perfil { grid-template-columns: 1fr; }
+  .columna-foto-nombre { flex-direction: column; }
+  .botones-accion-perfil {
+    width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .boton-editar-columnas,
+  .boton-guardar-columnas,
+  .boton-cancelar-columnas { flex: 1 1 140px; }
+}
+
+@media (max-width: 400px) {
+  .imagen-perfil-limpia,
+  .placeholder-foto-limpia { width: 140px; height: 140px; }
+  .boton-camara-limpia { width: 2rem; height: 2rem; }
+}

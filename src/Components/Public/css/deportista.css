@@ -1,0 +1,154 @@
+.contenedor_formulario_deportista {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(37, 86, 230, 0.1);
+}
+
+.titulo_formulario_deportista {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.formulario_deportista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.bloque_contacto{
+
+  max-width: 200%;
+  padding: 7px;
+  margin: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  
+}
+.campo_entrada_deportista,
+textarea {
+  width: 95%;
+  padding: 6px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+.parentesco{
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.campo_contacto{
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.campo_entrada_deportista:focus,
+textarea:focus {
+  border-color: #1a6f9d;
+  border: 2px;
+}
+
+.campo_experiencia_deportista {
+  width: 98%;
+}
+
+.alerta_error_deportista {
+  grid-column: span 2;
+  color: #d8000c;
+  padding: 6px 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: -10px;
+  width: 45%;
+}
+
+/* Campos que deben ocupar todo el ancho */
+textarea,
+.contenedor_botones_deportista {
+  grid-column: span 2;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botones */
+.contenedor_botones_deportista {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.boton_enviar_deportista {
+  padding: 12px;
+  width: 30%;
+  font-size: 1rem;
+  background-color: #1a6f9d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton_enviar_deportista:hover {
+  background-color: #185a90;
+}
+
+.bloque_contacto {
+  grid-column: span 2; /* Ocupa todo el ancho del grid */
+  display: flex;
+  gap: 15px; /* Espacio entre cada campo */
+}
+ontacto tengan el mismo estilo */
+.campo_contacto {
+  padding: 6px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formulario_deportista {
+    grid-template-columns: 1fr;
+  }
+
+  .alerta_error_deportista,
+  textarea,
+  .contenedor_botones_deportista {
+    grid-column: span 1;
+  }
+
+  .titulo_formulario_deportista {
+    font-size: 1.5rem;
+  }
+}

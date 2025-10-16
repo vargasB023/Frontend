@@ -1,0 +1,163 @@
+/* === Vision / ExerciseChecker Styles === */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #f8fbff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 60, 120, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+.text-primary {
+  color: #0066cc !important;
+}
+
+.border-primary {
+  border-color: #007bff !important;
+}
+
+.bg-primary {
+  background-color: #007bff !important;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.btn-outline-primary {
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+video {
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* --- Layout principal --- */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.col-lg-8 {
+  flex: 2;
+}
+
+.col-lg-4 {
+  flex: 1;
+}
+
+/* --- Cámara --- */
+.border-primary.rounded {
+  background: #eaf3ff;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+video,
+canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* --- Feedback y datos --- */
+.mt-3.text-center {
+  background: #e8f1ff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1rem !important;
+}
+
+.mt-3.text-center p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.fs-5.fw-semibold.text-primary {
+  font-size: 1.2rem;
+}
+
+/* --- Configuración lateral --- */
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.card-body {
+  background-color: #ffffff;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #004080;
+}
+
+.form-select,
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #b0c8e8;
+}
+
+.form-select:focus,
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* --- Lista de guía --- */
+.card.border-secondary {
+  border: 1px solid #b0c8e8 !important;
+}
+
+.card-header.bg-secondary {
+  background-color: #007bff !important;
+}
+
+.list-group-item {
+  background: #f9fcff;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  color: #004080;
+}
+
+.list-group-item:not(:last-child) {
+  border-bottom: 1px solid #d6e8ff;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .border-primary.rounded {
+    height: 400px;
+  }
+}

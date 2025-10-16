@@ -1,0 +1,490 @@
+
+/* Contenedor principal */
+.pln_contenedor {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Título principal */
+.pln_titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  letter-spacing: -0.025em;
+  border-bottom: 3px solid #3b82f6;
+  padding-bottom: 0.75rem;
+}
+
+/* Subtítulo */
+.pln_subtitulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.015em;
+}
+
+.pln_formulario {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  margin-bottom: 3rem;
+}
+
+/* Grids del formulario */
+.pln_grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pln_grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Items del formulario */
+.pln_item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pln_item label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.025em;
+}
+
+/* Inputs y selects */
+.pln_item input,
+.pln_item select,
+.pln_input,
+.pln_select {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1e293b;
+  background-color: white;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.pln_item input:focus,
+.pln_item select:focus,
+.pln_input:focus,
+.pln_select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.pln_item input:disabled,
+.pln_input:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   SECCIÓN MICROCICLOS
+   ======================================== */
+
+.pln_microciclo_agregar_contenedor {
+  margin-bottom: 1.5rem;
+}
+
+.pln_microciclo_agregar_contenedor label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.025em;
+}
+
+.pln_microciclo_agregar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+.pln_btnAgregar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.pln_btnAgregar:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+}
+
+.pln_btnAgregar:active {
+  transform: translateY(0);
+}
+
+/* Lista de microciclos seleccionados */
+.pln_listaMicrociclos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pln_micro_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.pln_micro_item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pln_micro_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pln_micro_info strong {
+  font-size: 1rem;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.pln_micro_detalle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.pln_micro_detalle span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pln_btnEliminar {
+  padding: 0.5rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pln_btnEliminar:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+
+/* ========================================
+   BOTONES DEL FORMULARIO
+   ======================================== */
+
+.pln_botones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pln_btnGuardar {
+  padding: 0.875rem 2rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pln_btnGuardar:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.pln_btnGuardar:active {
+  transform: translateY(0);
+}
+
+.pln_btnCancelar {
+  padding: 0.875rem 2rem;
+  background-color: white;
+  color: #64748b;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pln_btnCancelar:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+/* Mensaje de confirmación */
+.pln_mensaje {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  font-weight: 500;
+}
+
+/* ========================================
+   LISTADO DE PLANES
+   ======================================== */
+
+.pln_listado {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* Tabla */
+.pln_tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.pln_tabla thead {
+  background-color: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.pln_tabla th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pln_tabla tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+.pln_tabla tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.pln_tabla td {
+  padding: 1rem;
+  font-size: 0.9375rem;
+  color: #334155;
+}
+
+/* Detalles de microciclos en tabla */
+.pln_detalle_micro {
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.pln_detalle_micro summary {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.pln_detalle_micro summary:hover {
+  color: #2563eb;
+  background-color: #dbeafe;
+  border-color: #bfdbfe;
+}
+
+.pln_detalle_micro[open] summary {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.pln_lista_micro {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pln_lista_micro li {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-left: 4px solid #3b82f6;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.pln_lista_micro li:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
+}
+
+.pln_lista_micro li strong {
+  display: block;
+  color: #0f172a;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pln_lista_micro li div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 0.8125rem;
+}
+
+.pln_lista_micro li div span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  background-color: white;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.pln_sin_micro {
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 1024px) {
+  .pln_grid3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pln_contenedor {
+    padding: 1rem;
+  }
+
+  .pln_titulo {
+    font-size: 1.5rem;
+  }
+
+  .pln_formulario,
+  .pln_listado {
+    padding: 1.5rem;
+  }
+
+  .pln_grid3,
+  .pln_grid2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pln_microciclo_agregar {
+    flex-direction: column;
+  }
+
+  .pln_microciclo_agregar select {
+    width: 100%;
+  }
+
+  .pln_btnAgregar {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pln_botones {
+    flex-direction: column;
+  }
+
+  /* Tabla responsive */
+  .pln_tabla {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .pln_titulo {
+    font-size: 1.25rem;
+  }
+
+  .pln_subtitulo {
+    font-size: 1.125rem;
+  }
+
+  .pln_micro_detalle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

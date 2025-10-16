@@ -1,0 +1,290 @@
+ .cronograma-contenedor {
+     padding: 20px;
+     background: #f8fafc;
+     min-height: 80vh;
+     width: 100%;
+     max-width: none;
+     margin: 0;
+ }
+ 
+ .cronograma-header {
+     background: #fff;
+     padding: 15px 20px;
+     border-radius: 10px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+     margin-bottom: 20px;
+     border-left: 4px solid #1a6f9d;
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+ }
+ 
+ .cronograma-title {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+ 
+ .cronograma-header h2 {
+     color: #1a6f9d;
+     margin: 0;
+     font-size: 18px;
+     font-weight: 700;
+     display: flex;
+     align-items: center;
+     gap: 6px;
+ }
+ 
+ .equipo-badge {
+     background: #e3f2fd;
+     color: #1565c0;
+     padding: 6px 14px;
+     border-radius: 16px;
+     font-size: 14px;
+     font-weight: 600;
+     border: 1px solid #1565c0;
+     white-space: nowrap;
+ }
+ 
+ .event-count {
+     margin: 0;
+     font-size: 14px;
+     color: #555;
+     font-weight: 500;
+     text-align: left;
+ }
+ 
+ .cronograma-header p {
+     color: #666;
+     margin: 0;
+     font-size: 18px;
+     font-weight: 500;
+ }
+ 
+ .cronograma-cargando,
+ .cronograma-sin-equipo,
+ .cronograma-sin-eventos {
+     background: #fff;
+     padding: 50px 40px;
+     border-radius: 12px;
+     text-align: center;
+     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+     max-width: 100%;
+     border-top: 4px solid #1a6f9d;
+ }
+ 
+ .cronograma-cargando p,
+ .cronograma-sin-equipo p,
+ .cronograma-sin-eventos p {
+     font-size: 20px;
+     color: #666;
+     margin: 0;
+ }
+ 
+ .cronograma-sin-equipo h2 {
+     color: #1a6f9d;
+     margin-bottom: 20px;
+     font-size: 32px;
+ }
+ 
+ .cronograma-eventos {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 30px;
+     max-width: 100%;
+ }
+ 
+ .cronograma-card-evento {
+     background: #fff;
+     border-radius: 12px;
+     padding: 30px;
+     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+     border-top: 4px solid #1a6f9d;
+     transition: all 0.3s ease;
+     display: flex;
+     flex-direction: column;
+     height: fit-content;
+     min-height: 320px;
+     width: 100%;
+ }
+ 
+ .cronograma-card-evento:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+ }
+ 
+ .evento-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     margin-bottom: 20px;
+     gap: 15px;
+ }
+ 
+ .evento-header h3 {
+     color: #1a6f9d;
+     margin: 0;
+     font-size: 24px;
+     font-weight: 600;
+     flex: 1;
+ }
+ 
+ .evento-tipo {
+     padding: 8px 16px;
+     border-radius: 20px;
+     font-size: 14px;
+     font-weight: 700;
+     text-transform: uppercase;
+     white-space: nowrap;
+ }
+ 
+ .evento-tipo.entrenamiento {
+     background: #e0f4e7;
+     color: #2e7d32;
+     border: 1px solid #2e7d32;
+ }
+ 
+ .evento-tipo.partido {
+     background: #fdecea;
+     color: #c62828;
+     border: 1px solid #c62828;
+ }
+ 
+ .evento-tipo.reunion {
+     background: #e3f2fd;
+     color: #1565c0;
+     border: 1px solid #1565c0;
+ }
+ 
+ .evento-tipo.otro {
+     background: #f3e5f5;
+     color: #7b1fa2;
+     border: 1px solid #7b1fa2;
+ }
+ 
+ .evento-fecha-hora {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 20px;
+     padding: 15px;
+     background: #f8f9fa;
+     border-radius: 8px;
+     font-size: 16px;
+ }
+ 
+ .evento-fecha-hora .fecha {
+     color: #333;
+     font-weight: 500;
+ }
+ 
+ .evento-fecha-hora .hora {
+     color: #1a6f9d;
+     font-weight: 600;
+ }
+ 
+ .evento-detalles p {
+     margin: 12px 0;
+     color: #555;
+     line-height: 1.6;
+     font-size: 16px;
+ }
+ 
+ .evento-detalles strong {
+     color: #333;
+     font-size: 16px;
+ }
+ 
+ .evento-equipo {
+     margin-top: auto;
+     padding-top: 20px;
+     border-top: 1px solid #eee;
+ }
+ 
+ .evento-equipo small {
+     color: #888;
+     font-size: 14px;
+ }
+ /* RESPONSIVE PARA PANTALLAS MAS GRANDES */
+ 
+ @media (min-width: 1200px) {
+     .cronograma-contenedor {
+         padding: 30px 40px;
+     }
+     .cronograma-header {
+         padding: 40px;
+     }
+     .cronograma-header h2 {
+         font-size: 36px;
+     }
+     .cronograma-eventos {
+         gap: 40px;
+     }
+     .cronograma-card-evento {
+         padding: 35px;
+         min-height: 350px;
+     }
+ }
+ /* RESPONSIVE PARA TABLETS */
+ 
+ @media (max-width: 1024px) {
+     .cronograma-eventos {
+         grid-template-columns: 1fr;
+         gap: 25px;
+     }
+     .cronograma-card-evento {
+         min-height: 300px;
+         padding: 25px;
+     }
+ }
+ /* RESPONSIVE PARA MOVILES */
+ 
+ @media (max-width: 768px) {
+     .cronograma-contenedor {
+         padding: 15px;
+     }
+     .cronograma-header {
+         padding: 25px 20px;
+     }
+     .cronograma-header h2 {
+         font-size: 28px;
+     }
+     .cronograma-header p {
+         font-size: 16px;
+     }
+     .cronograma-eventos {
+         gap: 20px;
+     }
+     .evento-header {
+         flex-direction: column;
+         align-items: flex-start;
+     }
+     .evento-fecha-hora {
+         flex-direction: column;
+         gap: 8px;
+         align-items: flex-start;
+     }
+     .cronograma-card-evento {
+         padding: 20px;
+         min-height: auto;
+     }
+     .evento-header h3 {
+         font-size: 20px;
+     }
+ }
+ /* Para pantallas muy pequeñas */
+ 
+ @media (max-width: 480px) {
+     .cronograma-contenedor {
+         padding: 10px;
+     }
+     .cronograma-header {
+         padding: 20px 15px;
+     }
+     .cronograma-card-evento {
+         padding: 15px;
+     }
+     .cronograma-header h2 {
+         font-size: 24px;
+     }
+ }

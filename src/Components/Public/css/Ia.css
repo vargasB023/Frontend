@@ -1,0 +1,216 @@
+/* === ESTILOS GENERALES === */
+body {
+  background: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.IAContenedor {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+/* === CABECERA === */
+.IACabecera {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.IATitulo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0077b6;
+  margin-bottom: 10px;
+}
+
+.IASubtitulo {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+/* === TARJETA === */
+.IATarjeta {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.IACuerpoTarjeta {
+  padding: 10px;
+}
+
+/* === ÁREA DE TEXTO === */
+.IAEntradaTexto {
+  margin-bottom: 15px;
+}
+
+.IAAreaTexto {
+  width: 100%;
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  padding: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.IAAreaTexto:focus {
+  border-color: #0077b6;
+  box-shadow: 0 0 8px rgba(0, 119, 182, 0.4);
+  outline: none;
+}
+
+/* === BOTÓN ENVIAR === */
+.IABotonContenedor {
+  display: grid;
+}
+
+.IABotonEnviar {
+  background: #0077b6;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.IABotonEnviar:hover {
+  background: #005f86;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.4);
+}
+
+/* Spinner de carga */
+.IASpinner {
+  margin-right: 8px;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === RESPUESTA === */
+.IARespuestaContenedor {
+  background: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #212529;
+}
+
+.IARespuestaContenedor strong {
+  color: #0077b6;
+  font-weight: 600;
+}
+
+.IARespuestaTexto {
+  margin-top: 10px;
+  white-space: pre-line;
+  color: #212529;
+}
+
+/* === RESPONSIVIDAD === */
+
+/* Tablets medianas */
+@media (max-width: 992px) {
+  .IAContenedor {
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  .IATitulo {
+    font-size: 2rem;
+  }
+
+  .IASubtitulo {
+    font-size: 1rem;
+  }
+
+  .IAAreaTexto {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .IABotonEnviar {
+    padding: 9px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  .IAContenedor {
+    max-width: 95%;
+    margin: 25px auto;
+  }
+
+  .IATitulo {
+    font-size: 1.8rem;
+  }
+
+  .IASubtitulo {
+    font-size: 0.95rem;
+  }
+
+  .IATarjeta {
+    padding: 15px;
+  }
+
+  .IAAreaTexto {
+    font-size: 0.9rem;
+  }
+
+  .IARespuestaContenedor {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .IAContenedor {
+    margin: 15px auto;
+    padding: 10px;
+  }
+
+  .IATitulo {
+    font-size: 1.5rem;
+  }
+
+  .IASubtitulo {
+    font-size: 0.9rem;
+  }
+
+  .IAAreaTexto {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .IABotonEnviar {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 9px;
+  }
+
+  .IARespuestaContenedor {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}

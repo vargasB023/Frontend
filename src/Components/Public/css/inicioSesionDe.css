@@ -1,0 +1,178 @@
+
+.contenedor-login {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9fafb;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.tarjeta-login {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Título principal */
+.titulo-login {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1a6f9d;
+}
+
+/* Formulario y grupos de campo */
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.grupo-campo-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.etiqueta-login {
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+/* Input + ícono + botón ver contraseña */
+.contenedor-input-login {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.entrada-login {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.entrada-login:focus {
+  border-color: #1a6f9d;
+}
+
+.entrada-contrasena-login {
+  padding-right: 2.5rem;
+}
+
+/* Input con error */
+.entrada-error-login {
+  border-color: #dc2626;
+}
+
+.texto-error-campo-login {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Botón para ver contraseña */
+.boton-mostrar-contrasena-login {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Botón de envío */
+.boton-login {
+  background-color: #1a6f9d;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.boton-login:hover {
+  background-color: #185a90;
+}
+
+/* Spinner */
+.spinner-login {
+  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+/* Enlace olvidé mi contraseña */
+.olvide-contrasena {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.olvide-contrasena a {
+  color: #1a6f9d;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.olvide-contrasena a:hover {
+  text-decoration: underline;
+}
+
+/* Error general */
+.alerta-error-login {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.icono-error-login {
+  font-size: 1.2rem;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .tarjeta-login {
+    padding: 1.5rem 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .titulo-login {
+    font-size: 1.4rem;
+  }
+
+  .entrada-login {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  .boton-login {
+    font-size: 0.95rem;
+  }
+
+  .boton-mostrar-contrasena-login {
+    font-size: 1rem;
+  }
+}

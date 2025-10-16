@@ -1,0 +1,162 @@
+/* 🎨 Contenedor principal */
+.repAsisDep-contenedor {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1500px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* 👤 Header */
+.repAsisDep-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(26, 111, 157, 0.12);
+  margin-bottom: 25px;
+  flex-wrap: wrap; /* 📱 permite que el contenido baje en pantallas chicas */
+}
+
+.repAsisDep-iconoUsuario {
+  color: #1a6f9d;
+  font-size: 28px;
+}
+
+.repAsisDep-nombre {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #114b6e;
+  word-break: break-word;
+}
+
+/* 📋 Título */
+.repAsisDep-titulo {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #1a6f9d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 📌 Lista de asistencias */
+.repAsisDep-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 🔑 Ajusta cards */
+  gap: 20px;
+}
+
+/* 📦 Card de asistencia */
+.repAsisDep-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 15px rgba(26, 111, 157, 0.12);
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.repAsisDep-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ℹ️ Información */
+.repAsisDep-info {
+  flex: 1;
+  min-width: 0; /* 🔑 evita que el texto desborde */
+}
+
+.repAsisDep-evento {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #114b6e;
+  margin-bottom: 6px;
+}
+
+.repAsisDep-fecha {
+  font-size: 0.95rem;
+  color: #374151;
+  word-break: break-word;
+}
+
+.repAsisDep-observacion {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: #1a6f9d;
+  word-break: break-word;
+}
+
+/* ✅❌ Estado */
+.repAsisDep-estado {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  flex-shrink: 0; /* evita que se deforme en pantallas chicas */
+}
+
+.repAsisDep-iconoPresente {
+  color: #22c55e;
+  font-size: 20px;
+}
+
+.repAsisDep-iconoAusente {
+  color: #ef4444;
+  font-size: 20px;
+}
+
+.repAsisDep-textoEstado {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.repAsisDep-textoPresente {
+  color: #15803d;
+}
+
+.repAsisDep-textoAusente {
+  color: #b91c1c;
+}
+
+/* 🔄 Estados vacíos */
+.repAsisDep-cargando,
+.repAsisDep-vacio {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #1a6f9d;
+  margin-top: 15px;
+}
+
+/* 📱 Responsividad */
+@media (min-width: 768px) {
+  .repAsisDep-card {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .repAsisDep-nombre {
+    font-size: 1.2rem;
+  }
+
+  .repAsisDep-evento {
+    font-size: 1rem;
+  }
+
+  .repAsisDep-titulo {
+    font-size: 1.4rem;
+  }
+
+  .repAsisDep-card {
+    padding: 14px;
+  }
+}

@@ -1,0 +1,307 @@
+/* 🎨 ESTILOS DE SESIÓN (versión compacta y adaptada) */
+
+.ses_contenedor {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to right, #f9fbfd, #f1f5f9);
+  min-height: 100vh;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.ses_tituloPrincipal {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a6f9d;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid #1a6f9d;
+  padding-bottom: 0.3rem;
+}
+
+.ses_mensaje {
+  background-color: #dff6ff;
+  border-left: 4px solid #1a6f9d;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  color: #08384f;
+  font-weight: 500;
+}
+
+/* --- FORMULARIO --- */
+.ses_formulario {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  animation: fadeIn 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ses_form_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.ses_subtitulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #155e82;
+  margin-bottom: 0.6rem;
+}
+
+/* --- CAMPOS --- */
+.ses_campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.7rem 1rem;
+  align-items: start;
+}
+
+.ses_campo,
+.ses_select {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1.3px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  background: #ffffff;
+}
+
+.ses_campo:focus,
+.ses_select:focus {
+  outline: none;
+  border-color: #1a6f9d;
+  box-shadow: 0 0 0 2px rgba(26, 111, 157, 0.2);
+}
+
+/* Textareas a lo ancho */
+.ses_campo[name="objetivo"],
+.ses_campo[name="observaciones"] {
+  grid-column: 1 / -1;
+  min-height: 70px;
+}
+
+/* --- BOTONES --- */
+.ses_botonEnviar,
+.ses_botonSecundario,
+.ses_botonAgregar {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.ses_botonEnviar {
+  background: linear-gradient(135deg, #1a6f9d, #155e82);
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(26, 111, 157, 0.3);
+}
+.ses_botonEnviar:hover {
+  background: linear-gradient(135deg, #155e82, #0f4160);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(26, 111, 157, 0.4);
+}
+
+.ses_botonSecundario {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(220, 38, 38, 0.3);
+}
+.ses_botonSecundario:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
+}
+
+.ses_botonAgregar {
+  background: #198951;
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.25);
+}
+.ses_botonAgregar:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.35);
+}
+
+/* --- ACCIONES --- */
+.ses_accionesForm {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --- TABLAS --- */
+.ses_table,
+.ses_tableEjercicios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.ses_table th,
+.ses_table td,
+.ses_tableEjercicios th,
+.ses_tableEjercicios td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+}
+
+.ses_table th,
+.ses_tableEjercicios th {
+  background: #1a6f9d;
+  color: #fff;
+  font-weight: 600;
+}
+
+.ses_table tr:nth-child(even),
+.ses_tableEjercicios tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* --- ICONOS --- */
+.ses_icono {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.ses_icono:hover {
+  transform: scale(1.1);
+}
+
+/* --- TARJETAS DE SESIONES --- */
+.ses_listado {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #dee2e6;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.ses_card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 0.8rem;
+  background: #f9fafb;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ses_card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ses_card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ses_card_header h4 {
+  color: #155e82;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.ses_card_detalle p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin: 0.25rem 0;
+}
+
+.ses_accionesCard {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.ses_vacio {
+  color: #777;
+  text-align: center;
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* --- BADGES DE FASE (final y completo) --- */
+.fase-badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Colores por fase */
+.fase-badge.calentamiento {
+  background: #ffe57b; /* amarillo */
+  color: #333;
+}
+
+.fase-badge.principal,
+.fase-badge.fase_principal {
+  background: #d3734d; /* verde */
+}
+
+.fase-badge.recuperacion {
+  background: #3b82f6; /* azul */
+}
+
+.fase-badge.vuelta_a_la_calma,
+.fase-badge.vuelta_calma {
+  background: #8b5cf6; /* violeta */
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .ses_contenedor {
+    padding: 1rem;
+  }
+
+  .ses_campos {
+    grid-template-columns: 1fr;
+  }
+
+  .ses_accionesForm {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ses_card {
+    padding: 10px;
+  }
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

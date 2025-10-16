@@ -1,0 +1,82 @@
+.forgot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  background: #f9fafb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.forgot-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.forgot-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.forgot-subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.forgot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.forgot-input,
+.forgot-select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  outline: none;
+  background-color: #fff;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.forgot-input:focus,
+.forgot-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.forgot-button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.forgot-button:hover {
+  background-color: #1e40af;
+}
+
+.forgot-message {
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #ef4444;
+}
+
+.forgot-footer {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}

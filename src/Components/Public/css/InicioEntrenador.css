@@ -1,0 +1,162 @@
+.dashboard-entrenador {
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  background: #f9fbfd;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* --- SECCIONES --- */
+.seccion-eventos,
+.seccion-equipos {
+  margin-bottom: 40px;
+}
+
+.seccion-eventos h2,
+.seccion-equipos h2 {
+  color: #0077b6;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6rem;
+}
+
+/* --- EVENTOS --- */
+.lista-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta-evento {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-evento:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-evento h3 {
+  font-size: 1.2rem;
+  color: #0077b6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* --- EQUIPOS --- */
+.lista-equipos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta-equipo {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-equipo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-equipo h3 {
+  color: #0096c7;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.tarjeta-equipo ul {
+  list-style: none;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.tarjeta-equipo li {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .dashboard-entrenador {
+    padding: 15px;
+  }
+
+  .seccion-eventos h2,
+  .seccion-equipos h2 {
+    font-size: 1.4rem;
+  }
+
+  .tarjeta-evento h3,
+  .tarjeta-equipo h3 {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-entrenador {
+    padding: 15px;
+  }
+
+  .lista-eventos,
+  .lista-equipos {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .tarjeta-evento,
+  .tarjeta-equipo {
+    padding: 14px;
+  }
+
+  .seccion-eventos h2,
+  .seccion-equipos h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-entrenador {
+    padding: 10px;
+  }
+
+  .lista-eventos,
+  .lista-equipos {
+    grid-template-columns: 1fr;
+  }
+
+  .seccion-eventos h2,
+  .seccion-equipos h2 {
+    font-size: 1.2rem;
+    justify-content: center;
+  }
+
+  .tarjeta-evento,
+  .tarjeta-equipo {
+    padding: 12px;
+  }
+
+  .tarjeta-evento h3,
+  .tarjeta-equipo h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .tarjeta-equipo ul {
+    padding-left: 0;
+    text-align: center;
+  }
+}

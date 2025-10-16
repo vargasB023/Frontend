@@ -1,0 +1,263 @@
+
+.cro_contenedor_cronograma {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #f4f6f9;
+  min-height: 100vh;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.cro_encabezado_cronograma {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.cro_titulo {
+  font-size: 28px; /* +5 respecto al estándar */
+  font-weight: 700;
+  color: #1a6f9d;
+}
+
+.cro_controles_encabezado {
+  display: flex;
+  gap: 10px;
+}
+
+.cro_boton_nEvento {
+  background: #1a6f9d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cro_boton_nEvento:hover {
+  background: #15587a;
+}
+
+/* Navegación */
+.cro_navegacion_cronograma {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cro_selector_vista button {
+  background: #7bb2ce;
+  border: none;
+  padding: 8px 15px;
+  margin-right: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.cro_boton_activo {
+  background: #1a6f9d;
+  color: #fff;
+  font-weight: 600;
+}
+
+.cro_boton_secundario {
+  background: #d9e6ec;
+  color: #333;
+}
+
+.cro_selector_filtro {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+
+}
+
+/* Formulario */
+.cro_capa_formulario {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.cro_formulario_evento h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #1a6f9d;
+}
+
+.cro_grupo_formulario {
+  margin-bottom: 18px;
+}
+
+.cro_grupo_formulario label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px; /* +5px */
+  font-weight: 600;
+  color: #333;
+}
+
+.cro_grupo_formulario input,
+.cro_grupo_formulario select,
+.cro_grupo_formulario textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 17px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.3s;
+}
+
+.cro_grupo_formulario input:focus,
+.cro_grupo_formulario select:focus,
+.cro_grupo_formulario textarea:focus {
+  border-color: #1a6f9d;
+  outline: none;
+}
+
+.cro_acciones_formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cro_boton {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cro_boton_primario {
+  background: #1a6f9d;
+  color: #fff;
+}
+
+.cro_boton_primario:hover {
+  background: #15587a;
+}
+
+.cro_boton_secundario {
+  background: #d9e6ec;
+  color: #333;
+}
+
+.cro_boton_secundario:hover {
+  background: #c2d7e0;
+}
+
+/* Vista Lista */
+.cro_vista_lista {
+  display: grid;
+  gap: 20px;
+}
+
+.cro_tarjeta_evento {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.cro_encabezado_evento {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cro_encabezado_evento h3 {
+  font-size: 20px;
+  color: #1a6f9d;
+}
+
+.cro_etiqueta_tipo {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cro_etiqueta_tipo.entrenamiento {
+  background: #e0f4e7;
+  color: #2e7d32;
+}
+
+.cro_etiqueta_tipo.partido {
+  background: #fdecea;
+  color: #c62828;
+}
+
+.cro_info_evento p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.cro_acciones_evento {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.cro_btn_editar,
+.cro_btn_eliminar {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cro_btn_editar {
+  background: #f0f7ff;
+  color: #1a6f9d;
+}
+
+.cro_btn_editar:hover {
+  background: #d6ebff;
+}
+
+.cro_btn_eliminar {
+  background: #fdecea;
+  color: #c62828;
+}
+
+.cro_btn_eliminar:hover {
+  background: #f8d7da;
+}
+
+/* Vista Calendario */
+.cro_vista_calendario {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.cro_vista_calendario h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #1a6f9d;
+}
+
+.cro_vista_calendario input[type="date"] {
+  margin-bottom: 15px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}

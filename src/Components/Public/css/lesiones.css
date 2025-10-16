@@ -1,0 +1,262 @@
+/* CONTENEDOR PRINCIPAL */
+.lesV_contenedor {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1550px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(26, 111, 157, 0.1);
+  margin: 20px auto;
+}
+  .lesV_item_deportista {
+    flex-direction: column;
+    align-items: flex-start;
+   
+  }
+
+/* ENCABEZADO */
+.lesV_encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.lesV_titulo {
+  color: #1a6f9d;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.lesV_boton_registro {
+  background: #1a6f9d;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lesV_boton_registro:hover {
+  background: #155a7f;
+}
+
+.lesV_boton_cancelar {
+  background: #ff6b6b;
+}
+
+.lesV_boton_cancelar:hover {
+  background: #e65c5c;
+}
+
+/* BUSCADOR */
+.lesV_busqueda_contenedor {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.lesV_buscador {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesV_buscador:focus {
+  outline: none;
+  border-color: #1a6f9d;
+  box-shadow: 0 0 5px rgba(26, 111, 157, 0.3);
+}
+
+.lesV_boton_buscar {
+  background: #1a6f9d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lesV_boton_buscar:hover {
+  background: #155a7f;
+}
+
+/* LISTA DE DEPORTISTAS */
+.lesV_lista_deportistas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lesV_item_deportista {
+  background: #f8fbfd;
+  border: 1px solid #e1eaf1;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  box-shadow: 0 2px 8px rgba(26, 111, 157, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesV_item_deportista:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(26, 111, 157, 0.1);
+}
+
+.lesV_boton_ver {
+  background: #1a6f9d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lesV_boton_ver:hover {
+  background: #155a7f;
+}
+
+/* DETALLES DE LESIONES */
+.lesV_detalles {
+  margin-top: 30px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e1eaf1;
+  box-shadow: 0 3px 10px rgba(26, 111, 157, 0.08);
+  width: 100%;
+}
+
+.lesV_subtitulo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a6f9d;
+  margin-bottom: 20px;
+}
+
+/* TARJETAS DE LESIONES */
+.lesV_tarjeta_lesion {
+  margin-bottom: 24px;
+}
+
+.lesV_tarjeta_lesion h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #155a7f;
+}
+
+/* TABLA DE LESIONES */
+.lesV_tarjeta_lesion table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.lesV_tarjeta_lesion th,
+.lesV_tarjeta_lesion td {
+  border: 1px solid #e1eaf1;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.lesV_tarjeta_lesion th {
+  background: #f0f6fa;
+  color: #1a6f9d;
+  font-weight: 600;
+}
+
+.lesV_tarjeta_lesion tr:nth-child(even) {
+  background: #fafcfd;
+}
+.lesV_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.lesV_card {
+  background: #fdfefe;
+  border: 1px solid #e1eaf1;
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 8px rgba(26, 111, 157, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesV_card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(26, 111, 157, 0.12);
+}
+
+.lesV_item_deportista {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  transition: 0.3s;
+}
+
+.lesionado {
+  background: #c8e4ede3; /* rojo claro */
+  border: 2px solid #124b6a; /* rojo */
+  font-weight: bold;
+}
+
+
+.lesV_card h5 {
+  margin-bottom: 8px;
+  color: #1a6f9d;
+  font-size: 18px;
+}
+
+.lesV_card p {
+  margin: 6px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.lesV_card strong {
+  color: #000000;
+}
+.lesV_card strong {
+  color: #1a6f9d;
+  font-weight: 600;
+  text-transform: none; /* respeta el snake_case sin poner capital */
+  font-family: monospace; /* opcional, para dar aspecto técnico */
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .lesV_encabezado {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .lesV_busqueda_contenedor {
+    flex-direction: column;
+  }
+
+  .lesV_item_deportista {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

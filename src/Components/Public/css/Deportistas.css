@@ -1,0 +1,79 @@
+.contenedor {
+  padding: 20px;
+  color: #0d1b2a;
+  font-family: Arial, sans-serif;
+}
+
+.titulo {
+  color: #003366;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.busqueda {
+  padding: 8px;
+  width: 250px;
+  margin-bottom: 15px;
+  border: 1px solid #0066cc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.busqueda:focus {
+  border-color: #004080;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.tabla th,
+.tabla td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #b3c6e7;
+}
+
+.tabla th {
+  background-color: #e6f0ff;
+  color: #003366;
+}
+
+.acciones button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+  color: #004080;
+  transition: color 0.2s;
+}
+
+.acciones button:hover {
+  color: #0073e6;
+}
+
+.fila-detalle td {
+  background-color: #f0f6ff;
+  font-size: 14px;
+}
+
+.paginacion {
+  display: flex;
+  gap: 5px;
+}
+
+.paginacion button {
+  padding: 5px 10px;
+  border: 1px solid #004080;
+  background-color: white;
+  color: #004080;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.paginacion button.activo {
+  background-color: #004080;
+  color: white;
+}
