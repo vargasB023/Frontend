@@ -219,65 +219,50 @@
     height: 120px;
   }
 }
-
+/* === RESPONSIVE MOBILE (imagen debajo del título y centrada) === */
 @media (max-width: 768px) {
   .contenido-columnas-perfil {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     padding: 1.5rem;
   }
 
+  /* La imagen queda debajo del título y centrada */
   .columna-foto-nombre {
+    order: 1; /* aparece primero en móviles */
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    width: 100%;
   }
 
   .contenedor-foto-limpia {
     width: 140px;
     height: 140px;
+    margin: 0 auto;
   }
 
-  .titulo-pagina-perfil {
-    font-size: 1.6rem;
+  /* Información debajo de la imagen */
+  .columna-datos-personales,
+  .columna-datos-profesionales {
+    order: 2;
+    width: 100%;
   }
 
-  .botones-accion-perfil {
-    flex-direction: column;
+  .titulo-seccion-columna {
+    text-align: center;
   }
 
-  .boton-editar-columnas,
-  .boton-guardar-columnas,
-  .boton-cancelar-columnas {
+  .contenido-columnas-perfil > * {
     width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .contenedor-perfil-columnas {
-    padding: 0.75rem;
-    max-width: 100%;
-  }
-
-  .contenido-columnas-perfil {
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .columna-foto-nombre {
-    gap: 1rem;
-  }
-
   .contenedor-foto-limpia {
     width: 120px;
     height: 120px;
-  }
-
-  .titulo-pagina-perfil {
-    font-size: 1.4rem;
-  }
-
-  .valor-campo-columna {
-    font-size: 0.8rem;
-    padding: 0.5rem 0.75rem;
   }
 }

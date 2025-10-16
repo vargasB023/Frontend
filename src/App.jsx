@@ -38,7 +38,7 @@ function App() {
         <Route path="/restablecerContrasena/:token" element={<ResetPassword />} />
 
         {/* Rutas protegidas */}
-        <Route element={<ProtectedRotes user={user}/>}>
+        <Route element={<ProtectedRoutes user={user}/>}>
           <Route path="/dashEntrenador/*" element={<DashboardEntrenador />} />
           <Route path="/dashDeportista/*" element={<DashboardDeportista />} />
           <Route path="/visionGeneral/*" element={<VistaGeneralPlan />} />
@@ -48,7 +48,7 @@ function App() {
   );
 }
 
-const ProtectedRotes = ({ user, children }) => {
+const ProtectedRoutes = ({ user, children }) => {
   if (!user) return <Navigate to="/" />;
   return children ? children : <Outlet />;
 };
