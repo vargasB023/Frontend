@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  build: {
-			outDir: "dist",
-			assetsInclude: ['*/.jpg', '*/.jpeg', '*/.png', '*/.gif']
-		}
+  server: {
+    historyApiFallback: true, // 👈 Esto permite recargar rutas sin error 404 en desarrollo
+  },
+  
 })
