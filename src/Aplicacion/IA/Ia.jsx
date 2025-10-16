@@ -10,7 +10,7 @@ function Ia() {
     if (!input.trim()) return;
     setLoading(true);
     try {
-      const res = await fetch("https://backend-7sye.onrender.com/api/gpt", {
+      const res = await fetch("https://backend-5gwv.onrender.com/api/gpt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
