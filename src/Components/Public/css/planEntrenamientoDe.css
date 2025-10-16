@@ -1,0 +1,192 @@
+/* --- Reset / base --- */
+.planDeContenedor {
+  padding: 16px;
+  font-family: "Poppins", system-ui, Arial, sans-serif;
+  color: #1f2937;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Banner */
+.planDeBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.planDeTitulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Estado, loading, error */
+.planDeLoading,
+.planDeError,
+.planDeSinDatos {
+  text-align: center;
+  padding: 18px;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #92400e;
+  margin: 12px 0;
+}
+
+/* Texto del reporte */
+.planDeTextoReporteActivo {
+  margin: 8px 0 18px 0;
+  font-size: 0.95rem;
+}
+
+/* Plan card */
+.planDeCard {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.06);
+  margin-bottom: 16px;
+  border-left: 4px solid #0ea5a4;
+}
+
+/* Info principal del plan */
+.planDeInfo p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+.planDeEstado {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.planDeEstado.en_curso { background: #fef3c7; color:#92400e; }
+.planDeEstado.finalizado { background: #dcfce7; color:#065f46; }
+.planDeEstado.pendiente { background: #fee2e2; color:#7f1d1d; }
+
+/* Subtítulos */
+.planDeSubtitulo {
+  margin: 12px 0 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Microciclos */
+.planDeMicrocicloCard {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.planDeMicrocicloHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.planDeDescripcion {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+/* Intensidad */
+.planDeIntensidad {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 0;
+}
+.planDeBarra {
+  height: 10px;
+  width: 100%;
+  background: #e6eef0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.planDeRelleno {
+  height: 100%;
+  width: 0;
+  transition: width 0.5s ease;
+}
+.planDeRelleno.alta { background: #ef4444; }
+.planDeRelleno.media { background: #f59e0b; }
+.planDeRelleno.baja { background: #10b981; }
+
+/* Sesiones */
+.planDeSesiones {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.planDeSesionCard {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #eef2f7;
+}
+.planDeSesionTitulo { margin-bottom: 6px; font-size: 0.95rem; font-weight:600; }
+.planDeObservacion { font-style: italic; margin-top: 6px; }
+
+/* Ejercicios grid */
+.planDeEjerciciosGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+.planDeEjercicioCard {
+  border-radius: 8px;
+  padding: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.03);
+  border: 1px solid #f1f5f9;
+}
+.planDeEjercicioHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.planDeEjercicioNombre { font-weight: 700; }
+.planDeEjercicioTipo { font-size: 0.85rem; opacity: 0.8; }
+.planDeEjercicioDetalles p { margin: 4px 0; font-size: 0.9rem; }
+.planDeEjercicioDescripcion { margin-top: 6px; font-size: 0.9rem; color: #374151; }
+
+/* --- Responsive --- */
+/* Tablet */
+@media (min-width: 600px) {
+  .planDeSesiones {
+    grid-template-columns: 1fr 1fr;
+  }
+  .planDeEjerciciosGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop */
+@media (min-width: 920px) {
+  .planDeCard {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .planDeInfo { padding-right: 8px; }
+  .planDeSesiones {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .planDeEjerciciosGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Pequeños ajustes estéticos */
+.planDeCard + .planDeCard { margin-top: 12px; }
