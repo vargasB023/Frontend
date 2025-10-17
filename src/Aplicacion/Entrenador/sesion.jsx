@@ -16,7 +16,6 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
     observaciones: "",
     ejercicios: [],
   });
-
   const [ejerciciosDisponibles, setEjerciciosDisponibles] = useState([]);
   const [ejercicioTemp, setEjercicioTemp] = useState({
     ID_Ejercicio: "",
