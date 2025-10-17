@@ -1,8 +1,9 @@
+/* === DASHBOARD ENTRENADOR === */
 .dashboard-entrenador {
-  padding: 20px;
-  font-family: "Segoe UI", sans-serif;
-  background: #f9fbfd;
-  border-radius: 12px;
+  padding: 2rem;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  background-color: #f5f8fa;
+  border-radius: 16px;
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -11,94 +12,100 @@
 /* --- SECCIONES --- */
 .seccion-eventos,
 .seccion-equipos {
-  margin-bottom: 40px;
+  margin-bottom: 3rem;
 }
 
 .seccion-eventos h2,
 .seccion-equipos h2 {
-  color: #0077b6;
-  margin-bottom: 15px;
+  color: #1a6f9d;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* --- TARJETAS BASE --- */
+.tarjeta-evento,
+.tarjeta-equipo {
+  background-color: #ffffff;
+  padding: 1.2rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #e4e8ec;
+}
+
+.tarjeta-evento:hover,
+.tarjeta-equipo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 /* --- EVENTOS --- */
 .lista-eventos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.tarjeta-evento {
-  background: #ffffff;
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tarjeta-evento:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  gap: 1.5rem;
 }
 
 .tarjeta-evento h3 {
-  font-size: 1.2rem;
-  color: #0077b6;
+  font-size: 1.15rem;
+  color: #1a6f9d;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.tarjeta-evento p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 /* --- EQUIPOS --- */
 .lista-equipos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.tarjeta-equipo {
-  background: #ffffff;
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tarjeta-equipo:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  gap: 1.5rem;
 }
 
 .tarjeta-equipo h3 {
-  color: #0096c7;
+  color: #185a90;
   font-size: 1.1rem;
-  margin-bottom: 8px;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
 }
 
 .tarjeta-equipo ul {
   list-style: none;
-  padding-left: 10px;
+  padding-left: 0;
   margin: 0;
 }
 
 .tarjeta-equipo li {
   font-size: 0.9rem;
   color: #333;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tarjeta-equipo li:last-child {
+  border-bottom: none;
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
   .dashboard-entrenador {
-    padding: 15px;
+    padding: 1.5rem;
   }
 
   .seccion-eventos h2,
   .seccion-equipos h2 {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
   }
 
   .tarjeta-evento h3,
@@ -109,17 +116,17 @@
 
 @media (max-width: 768px) {
   .dashboard-entrenador {
-    padding: 15px;
+    padding: 1.2rem;
   }
 
   .lista-eventos,
   .lista-equipos {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 
   .tarjeta-evento,
   .tarjeta-equipo {
-    padding: 14px;
+    padding: 1rem;
   }
 
   .seccion-eventos h2,
@@ -130,23 +137,25 @@
 
 @media (max-width: 480px) {
   .dashboard-entrenador {
-    padding: 10px;
+    padding: 1rem;
   }
 
   .lista-eventos,
   .lista-equipos {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .seccion-eventos h2,
   .seccion-equipos h2 {
     font-size: 1.2rem;
     justify-content: center;
+    text-align: center;
   }
 
   .tarjeta-evento,
   .tarjeta-equipo {
-    padding: 12px;
+    padding: 0.9rem;
   }
 
   .tarjeta-evento h3,
@@ -156,7 +165,30 @@
   }
 
   .tarjeta-equipo ul {
-    padding-left: 0;
     text-align: center;
+  }
+}
+
+/* --- MODO OSCURO OPCIONAL --- */
+@media (prefers-color-scheme: dark) {
+  .dashboard-entrenador {
+    background-color: #12191f;
+    color: #e6e9ec;
+  }
+
+  .tarjeta-evento,
+  .tarjeta-equipo {
+    background-color: #1e2a33;
+    border: 1px solid #2f3b45;
+    box-shadow: none;
+  }
+
+  .tarjeta-evento h3,
+  .tarjeta-equipo h3 {
+    color: #4cc9f0;
+  }
+
+  .tarjeta-equipo li {
+    border-bottom: 1px solid #2a353d;
   }
 }
