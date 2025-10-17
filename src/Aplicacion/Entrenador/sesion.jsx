@@ -16,6 +16,7 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
     observaciones: "",
     ejercicios: [],
   });
+
   const [ejerciciosDisponibles, setEjerciciosDisponibles] = useState([]);
   const [ejercicioTemp, setEjercicioTemp] = useState({
     ID_Ejercicio: "",
@@ -104,14 +105,14 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
     hora_Fin: form.hora_Fin,
     objetivo: form.objetivo,
     observaciones: form.observaciones,
-    ejercicios: form.ejercicios.map((e) => ({
+    ejercicios: form.ejercicios.map((e, i) => ({
       ID_Ejercicio: Number(e.ID_Ejercicio),
       fase: e.fase,
-      orden: Number(e.orden) || null,
-      series: Number(e.series) || null,
-      repeticiones: Number(e.repeticiones) || null,
+      orden: Number(e.orden) || i + 1,
+      series: Number(e.series) || 0,
+      repeticiones: Number(e.repeticiones) || 0,
       duracion_min: Number(e.duracion_min) || 0,
-      observaciones: e.observaciones ?? null,
+      observaciones: e.observaciones || "",
     })),
   });
 
@@ -119,6 +120,8 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
     e.preventDefault();
     try {
       const payload = prepararPayload();
+      console.log("Payload enviado:", payload);
+
       if (isEditing) {
         await axios.put(
           `https://backend-5gwv.onrender.com/api/sesion/${form.ID_Sesion}`,
@@ -127,10 +130,12 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
       } else {
         await axios.post("https://backend-5gwv.onrender.com/api/sesion", payload);
       }
-      onGuardar();
+
+      alert("Sesión guardada correctamente");
+      onGuardar?.();
     } catch (err) {
       console.error("Error al guardar sesión:", err);
-      alert("Error al guardar sesión");
+      alert(err.response?.data?.error || "Error al guardar sesión");
     }
   };
 
@@ -197,6 +202,7 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
             </option>
           ))}
         </select>
+
         <select
           name="fase"
           value={ejercicioTemp.fase}
@@ -208,6 +214,7 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
             <option key={f}>{f}</option>
           ))}
         </select>
+
         <input
           type="number"
           name="series"
@@ -224,6 +231,23 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
           onChange={handleChangeEjercicio}
           className="ses_campo"
         />
+        <input
+          type="number"
+          name="duracion_min"
+          placeholder="Duración (min)"
+          value={ejercicioTemp.duracion_min}
+          onChange={handleChangeEjercicio}
+          className="ses_campo"
+        />
+        <input
+          type="text"
+          name="observaciones"
+          placeholder="Observaciones"
+          value={ejercicioTemp.observaciones}
+          onChange={handleChangeEjercicio}
+          className="ses_campo"
+        />
+
         <button
           type="button"
           className="ses_botonAgregar"
@@ -241,6 +265,8 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
               <th>Fase</th>
               <th>Series</th>
               <th>Reps</th>
+              <th>Duración (min)</th>
+              <th>Observaciones</th>
               <th></th>
             </tr>
           </thead>
@@ -251,6 +277,8 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
                 <td>{ej.fase}</td>
                 <td>{ej.series}</td>
                 <td>{ej.repeticiones}</td>
+                <td>{ej.duracion_min}</td>
+                <td>{ej.observaciones}</td>
                 <td>
                   <button
                     type="button"
