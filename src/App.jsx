@@ -10,7 +10,6 @@ import ResetPassword from './Aplicacion/Public/restablecerContrasena';
 import DashboardEntrenador from './Components/Public/dashboardEntrenador';
 import DashboardDeportista from './Components/Public/dashDeportista';
 import VistaGeneralPlan from './Aplicacion/Entrenador/vistaGeneralplan';
-import PlanEntrenamientoDeportista from './Aplicacion/Deportista/PlanEntrenamientoDeportista';
 
 function App() {
   const [user, setUser] = useState(() => {

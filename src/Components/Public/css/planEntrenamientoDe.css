@@ -1,192 +1,218 @@
-/* --- Reset / base --- */
 .planDeContenedor {
-  padding: 16px;
-  font-family: "Poppins", system-ui, Arial, sans-serif;
-  color: #1f2937;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 1550px;
+  margin: auto;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
 }
 
-/* Banner */
-.planDeBanner {
+/* 🔹 Encabezado principal */
+.planDeEncabezado {
+  color: #1a6f9d;
+  padding: 18px 25px;
+  border-radius: 14px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .planDeTitulo {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 26px;
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #1a6f9d;
 }
 
-/* Estado, loading, error */
-.planDeLoading,
+.planDeTextoEquipo {
+  font-size: 1rem;
+  color: #235eb5;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* 🔹 Estados de carga y error */
+.planDeCargando,
 .planDeError,
 .planDeSinDatos {
   text-align: center;
-  padding: 18px;
-  border-radius: 8px;
-  background: #fff7ed;
-  color: #92400e;
-  margin: 12px 0;
-}
-
-/* Texto del reporte */
-.planDeTextoReporteActivo {
-  margin: 8px 0 18px 0;
-  font-size: 0.95rem;
-}
-
-/* Plan card */
-.planDeCard {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 14px;
-  box-shadow: 0 6px 16px rgba(15,23,42,0.06);
-  margin-bottom: 16px;
-  border-left: 4px solid #0ea5a4;
-}
-
-/* Info principal del plan */
-.planDeInfo p {
-  margin: 6px 0;
-  font-size: 0.95rem;
-}
-.planDeEstado {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.8rem;
-}
-.planDeEstado.en_curso { background: #fef3c7; color:#92400e; }
-.planDeEstado.finalizado { background: #dcfce7; color:#065f46; }
-.planDeEstado.pendiente { background: #fee2e2; color:#7f1d1d; }
-
-/* Subtítulos */
-.planDeSubtitulo {
-  margin: 12px 0 8px;
   font-size: 1rem;
+  color: #777;
+  margin: 30px 0;
+}
+
+/* 🔹 Tarjeta principal del plan */
+.planDeTarjeta {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 🔹 Información del plan */
+.planDeInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 16px;
+}
+
+.planDeEstado {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.planDeEstado.en_curso { background: #e0f4e9; color: #1d8a4d; }
+.planDeEstado.finalizado { background: #ffe5e5; color: #c62828; }
+.planDeEstado.pendiente { background: #fff3cd; color: #856404; }
+
+/* 🔹 Subtítulos */
+.planDeSubtitulo {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #235eb5;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* Microciclos */
-.planDeMicrocicloCard {
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 10px;
+/* 🔹 Microciclos */
+.planDeMicrocicloTarjeta {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #fdfdfd;
+  border: 1px solid #eee;
+}
+
+.planDeMicrocicloCabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
   margin-bottom: 10px;
 }
-.planDeMicrocicloHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.planDeDescripcion {
-  margin: 6px 0;
-  font-size: 0.95rem;
+
+/* 🔹 Intensidad */
+.planDeIntensidad {
+  margin: 10px 0;
 }
 
-/* Intensidad */
-.planDeIntensidad {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 8px 0;
-}
 .planDeBarra {
-  height: 10px;
   width: 100%;
-  background: #e6eef0;
-  border-radius: 8px;
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
   overflow: hidden;
 }
+
 .planDeRelleno {
   height: 100%;
-  width: 0;
-  transition: width 0.5s ease;
+  border-radius: 6px;
 }
-.planDeRelleno.alta { background: #ef4444; }
-.planDeRelleno.media { background: #f59e0b; }
-.planDeRelleno.baja { background: #10b981; }
+.planDeRelleno.alta { background: #e74c3c; }
+.planDeRelleno.media { background: #f1c40f; }
+.planDeRelleno.baja { background: #2ecc71; }
 
-/* Sesiones */
+/* 🔹 Sesiones */
 .planDeSesiones {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 16px;
+  margin-top: 10px;
 }
-.planDeSesionCard {
-  background: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #eef2f7;
-}
-.planDeSesionTitulo { margin-bottom: 6px; font-size: 0.95rem; font-weight:600; }
-.planDeObservacion { font-style: italic; margin-top: 6px; }
 
-/* Ejercicios grid */
+.planDeSesionTarjeta {
+  background: #f8f9fc;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 15px;
+}
+
+.planDeSesionTarjeta p {
+  margin: 4px 0;
+}
+
+.planDeObservacion {
+  font-style: italic;
+  color: #555;
+}
+
+/* 🔹 Ejercicios */
 .planDeEjerciciosGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
 }
-.planDeEjercicioCard {
-  border-radius: 8px;
-  padding: 8px;
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(2,6,23,0.03);
-  border: 1px solid #f1f5f9;
+
+.planDeEjercicioTarjeta {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-.planDeEjercicioHeader {
+
+.planDeEjercicioCabecera {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.planDeEjercicioNombre {
+  font-size: 16px;
+  color: #235eb5;
+}
+
+.planDeEjercicioTipo {
+  font-size: 13px;
+  color: #555;
+}
+
+.planDeEjercicioDetalles {
+  font-size: 14px;
   margin-bottom: 6px;
 }
-.planDeEjercicioNombre { font-weight: 700; }
-.planDeEjercicioTipo { font-size: 0.85rem; opacity: 0.8; }
-.planDeEjercicioDetalles p { margin: 4px 0; font-size: 0.9rem; }
-.planDeEjercicioDescripcion { margin-top: 6px; font-size: 0.9rem; color: #374151; }
 
-/* --- Responsive --- */
-/* Tablet */
-@media (min-width: 600px) {
-  .planDeSesiones {
-    grid-template-columns: 1fr 1fr;
-  }
-  .planDeEjerciciosGrid {
-    grid-template-columns: 1fr 1fr;
-  }
+.planDeEjercicioDescripcion {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+}
+.planDeEquipoBanner {
+  background: linear-gradient(135deg, #eaf3ff, #f6fbff);
+  border: 1px solid #cce0ff;
+  border-radius: 14px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: #235eb5;
+  font-weight: 600;
+  font-size: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.planDeEquipoBanner svg {
+  color: #1a6f9d;
 }
 
-/* Desktop */
-@media (min-width: 920px) {
-  .planDeCard {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 18px;
-    align-items: start;
+
+/* 🔹 Responsivo */
+@media (max-width: 768px) {
+  .planDeEncabezado {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
-  .planDeInfo { padding-right: 8px; }
-  .planDeSesiones {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .planDeEjerciciosGrid {
-    grid-template-columns: repeat(3, 1fr);
+  .planDeInfo {
+    flex-direction: column;
+    gap: 8px;
   }
 }
-
-/* Pequeños ajustes estéticos */
-.planDeCard + .planDeCard { margin-top: 12px; }

@@ -9,7 +9,7 @@ import ReporteEquipoDeportista from "../../Aplicacion/Deportista/reporteEquipo"
 import ReporteAsistenciaDeportista from "../../Aplicacion/Deportista/reporteAsisDepor"
 import LesionesDeportistaView from "../../Aplicacion/Deportista/lesionesDepo"
 import ReporteEvaluacionesDeportista from "../../Aplicacion/Deportista/evaluaciones"
-// import Plan from "../../Aplicacion/Deportista/planEntrenamiento"  // 👈 Descomenta si existe
+import PlanEntrenamientoDeportista from "../../Aplicacion/Deportista/PlanEntrenamientoDeportista"
 
 export default function DashboardDeportista() {
   // 🔹 Estado inicial: que empiece en "inicio" (ReporteEquipoDeportista)
@@ -70,7 +70,7 @@ export default function DashboardDeportista() {
           {seccion === "lesionesDe" && <LesionesDeportistaView />}
           {seccion === "Evaluaciones" && <ReporteEvaluacionesDeportista />}
           {seccion === "perfil" && <Perfil_Deportista />}
-          {/* {seccion === "Plan" && <Plan />}  👈 Descomenta si tienes ese componente */}
+          {seccion === "Plan" && <PlanEntrenamientoDeportista />}
         </main>
       </div>
 
