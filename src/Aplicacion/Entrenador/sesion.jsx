@@ -5,7 +5,11 @@ import "../../Components/Public/css/sesion.css";
 
 const fasesValidas = ["CALENTAMIENTO", "PARTE_PRINCIPAL", "RECUPERACION"];
 
-const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }) => {
+const formularioSesiones = ({ sesionInicial, onGuardar, onCancelar }) => {
+  // 🔹 Obtener entrenador desde localStorage
+  const entrenadorGuardado = localStorage.getItem("entrenador");
+  const entrenador = entrenadorGuardado ? JSON.parse(entrenadorGuardado) : null;
+
   const [form, setForm] = useState({
     ID_Sesion: null,
     ID_Entrenador: entrenador?.ID_Entrenador || "",
@@ -76,11 +80,14 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
 
   const agregarEjercicio = () => {
     if (!ejercicioTemp.ID_Ejercicio || !ejercicioTemp.fase)
-      return alert("Debe seleccionar un ejercicio y fase");
+      return alert("Debe seleccionar un ejercicio y una fase.");
+
     setForm((f) => ({
       ...f,
       ejercicios: [...f.ejercicios, { ...ejercicioTemp }],
     }));
+
+    // Reset temporal
     setEjercicioTemp({
       ID_Ejercicio: "",
       fase: "",
@@ -100,11 +107,11 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
 
   const prepararPayload = () => ({
     ID_Entrenador: Number(form.ID_Entrenador),
-    nombre_Sesion: form.nombre_Sesion,
+    nombre_Sesion: form.nombre_Sesion.trim(),
     hora_Inicio: form.hora_Inicio,
     hora_Fin: form.hora_Fin,
-    objetivo: form.objetivo,
-    observaciones: form.observaciones,
+    objetivo: form.objetivo.trim(),
+    observaciones: form.observaciones.trim(),
     ejercicios: form.ejercicios.map((e, i) => ({
       ID_Ejercicio: Number(e.ID_Ejercicio),
       fase: e.fase,
@@ -112,7 +119,7 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
       series: Number(e.series) || 0,
       repeticiones: Number(e.repeticiones) || 0,
       duracion_min: Number(e.duracion_min) || 0,
-      observaciones: e.observaciones || "",
+      observaciones: e.observaciones?.trim() || "",
     })),
   });
 
@@ -121,6 +128,10 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
     try {
       const payload = prepararPayload();
       console.log("Payload enviado:", payload);
+
+      if (!payload.ID_Entrenador) {
+        return alert("No se encontró el ID del entrenador. Inicie sesión nuevamente.");
+      }
 
       if (isEditing) {
         await axios.put(
@@ -242,7 +253,7 @@ const formularioSesiones = ({ sesionInicial, entrenador, onGuardar, onCancelar }
         <input
           type="text"
           name="observaciones"
-          placeholder="Observaciones"
+          placeholder="Observaciones del ejercicio"
           value={ejercicioTemp.observaciones}
           onChange={handleChangeEjercicio}
           className="ses_campo"
